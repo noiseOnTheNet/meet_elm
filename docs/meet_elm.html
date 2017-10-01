@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Meet Elm</title>
+<meta name="author" content="(Marco Paolo Valerio Vezzoli)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:reveal.js-master/css/reveal.css"/>
+
+<link rel="stylesheet" href="file:reveal.js-master/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:reveal.js-master/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition=""><h1 class="title">Meet Elm</h1><h2 class="author">Marco Paolo Valerio Vezzoli</h2><h2 class="date">2017-10-01 Sun 00:00</h2><p class="date">Created: 2017-10-01 Sun 16:29</p>
+</section>
+
+<section>
+<section id="slide-orgfb42104" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h2 id="orgfb42104"><span class="section-number-2">1</span> Hello World</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org0d8c27c" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org0d8c27c"><span class="section-number-3">1.1</span> Simplest Program</h3>
+<p>
+let's begin with the most easy program
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #94bff3;">main</span> <span style="color: #dc8cc3;">=</span> div [] [text <span style="color: #fa6a6e;">"Hello World"</span>]
+</pre>
+</div>
+<p>
+when we save it the formatter changes a little the spaces: it is useful for
+</p>
+<ul>
+<li>reading consistently stuff</li>
+<li>verify trivial sintax errors (as it parse the code in order to
+format it)</li>
+
+</ul>
+<p>
+The formatter nicely integrates all programmer' editors (no notepad)
+</p>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orga3fb59a" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="orga3fb59a"><span class="section-number-4">1.1.1</span> Import and Export</h4>
+<p>
+It also added a new line with the module declaration: we change it a little
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">module</span> <span style="color: #e81eda;">Meet</span><span style="color: #dc8cc3;">.</span><span style="color: #e81eda;">Hello</span> <span style="color: #30a5f5; font-weight: bold;">exposing</span> (<span style="color: #dc8cc3;">..</span>)
+</pre>
+</div>
+<p>
+now let's add some import that define the html functions
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">import</span> <span style="color: #e81eda;">Html</span> <span style="color: #30a5f5; font-weight: bold;">exposing</span> (div<span style="color: #dc8cc3;">,</span> text<span style="color: #dc8cc3;">,</span> h1)
+</pre>
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org2dca55c" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org2dca55c"><span class="section-number-3">1.2</span> Install Packages</h3>
+<p>
+Before compiling we need to install some packages: you can find a
+complete list at <a href="http://package.elm-lang.org/">http://package.elm-lang.org/</a>
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh">elm-package install elm-lang/html
+</pre>
+</div>
+<p>
+this will install the html package and its dependencies
+</p>
+
+<p>
+elm creates a file <code>elm-package.json</code> with all ours specifications and
+a directory <code>elm-stuff</code> where all packages will be downloaded
+</p>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgb01e7ae" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgb01e7ae"><span class="section-number-3">1.3</span> Compile</h3>
+<p>
+To compile the package we can use
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh">elm-make Hello.elm --output index.html
+</pre>
+</div>
+<p>
+this will create an html file with the compiled program
+</p>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgc59561e" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgc59561e"><span class="section-number-3">1.4</span> Add Types</h3>
+<p>
+We can add some warning to the compiler
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh">elm-make --warn Hello.elm --output index.html
+</pre>
+</div>
+<p>
+this gives us a hint about the type of our value: we can write a type
+declaration like this
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #94bff3;">main</span> <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">Html</span><span style="color: #dc8cc3;">.</span><span style="color: #e81eda;">Html</span> <span style="color: #e81eda;">Never</span>
+</pre>
+</div>
+<p>
+immediately before the code
+</p>
+
+<p>
+Never is a type with no values: this means that our HTML is not dynamic
+</p>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgadf0d60" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgadf0d60"><span class="section-number-3">1.5</span> Generate Json Lib</h3>
+<p>
+We can also generate a json library which can help us integrating with
+other HTML
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #94bff3;">elm</span><span style="color: #dc8cc3;">-</span>make <span style="color: #3cb370;">--warn Hello.elm --output main.js</span>
+</pre>
+</div>
+<p>
+we just need to add this in the body
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #94bff3;">body</span>&gt;
+  &lt;<span style="color: #94bff3;">H1</span>&gt;This is the external HTML&lt;<span style="color: #94bff3;">H1</span>&gt;
+  &lt;<span style="color: #94bff3;">script</span> <span style="color: #abab3a;">type</span>=<span style="color: #fa6a6e;">"text/javascript"</span> <span style="color: #abab3a;">src</span>=<span style="color: #fa6a6e;">"main.js"</span>&gt;&lt;/<span style="color: #94bff3;">script</span>&gt;
+  &lt;<span style="color: #94bff3;">div</span> <span style="color: #abab3a;">id</span>=<span style="color: #fa6a6e;">"main"</span>&gt;&lt;/<span style="color: #94bff3;">div</span>&gt;
+  &lt;<span style="color: #94bff3;">script</span> <span style="color: #abab3a;">type</span>=<span style="color: #fa6a6e;">"text/javascript"</span>&gt;
+    var d = document.getElementById('main');
+    Elm.Meet.Hello.embed(d);
+  &lt;/<span style="color: #94bff3;">script</span>&gt;
+&lt;/<span style="color: #94bff3;">body</span>&gt;
+</pre>
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org7ef9960" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org7ef9960"><span class="section-number-3">1.6</span> Takeaways</h3>
+<ul>
+<li>Compiler infer types
+<ul>
+<li>this helps us a lot in debugging and development</li>
+<li>a lot of effort has been put since the beginning to get useful
+error messages</li>
+<li>the language support parametric polymorphism</li>
+
+</ul></li>
+<li>Semantic packaging and modules
+<ul>
+<li>modules are the mean to provide encapsulation</li>
+<li>published module are enforced to change major version if the
+exposed signatures change</li>
+<li>this means that module upgrades don't hurt</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4f420fd" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h2 id="org4f420fd"><span class="section-number-2">2</span> Simple Form</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org3709c81" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org3709c81"><span class="section-number-3">2.1</span> Elm Architecture: A Simple Form</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org04ea9fa" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org04ea9fa"><span class="section-number-4">2.1.1</span> Model</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org8cff8fc" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org8cff8fc"><span class="section-number-4">2.1.2</span> Messages</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgd5c9037" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="orgd5c9037"><span class="section-number-4">2.1.3</span> Update</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org21f45b9" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org21f45b9"><span class="section-number-4">2.1.4</span> View</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgbde0696" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgbde0696"><span class="section-number-3">2.2</span> Extending The Form</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org4bff5b3" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org4bff5b3"><span class="section-number-4">2.2.1</span> Adding more Widget</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org8e029b4" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org8e029b4"><span class="section-number-4">2.2.2</span> Adding more Messages</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org4cfde5f" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org4cfde5f"><span class="section-number-4">2.2.3</span> Extending the State</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org7b6320f" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org7b6320f"><span class="section-number-4">2.2.4</span> Extending the Update</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org4202451" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org4202451"><span class="section-number-3">2.3</span> Debugger</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org46d6800" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org46d6800"><span class="section-number-4">2.3.1</span> Compiling with debugger option</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgb3dccde" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="orgb3dccde"><span class="section-number-4">2.3.2</span> Time Travelling</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org2475d32" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org2475d32"><span class="section-number-3">2.4</span> Takeaways</h3>
+<div class="outline-text-3" id="text-2-4">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orga383b65" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="orga383b65"><span class="section-number-4">2.4.1</span> The Type System support refactoring</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org4c6f236" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org4c6f236"><span class="section-number-4">2.4.2</span> The Purity support debug</h4>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org256f2d6" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h2 id="org256f2d6"><span class="section-number-2">3</span> Clock</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orge0ff81c" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orge0ff81c"><span class="section-number-3">3.1</span> Elm Architecture (Again): Getting The Time</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgec7020e" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="orgec7020e"><span class="section-number-4">3.1.1</span> Subscriptions</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org1dd49a8" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org1dd49a8"><span class="section-number-4">3.1.2</span> SVN</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgf3bc3fa" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgf3bc3fa"><span class="section-number-3">3.2</span> Takeaways</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org2b3af13" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org2b3af13"><span class="section-number-4">3.2.1</span> Asynchronous events are all created equal</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org557d156" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org557d156"><span class="section-number-4">3.2.2</span> Dynamic DOM Update</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org183ddf1" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org183ddf1"><span class="section-number-4">3.2.3</span> Effects are accessible: type system aids checking</h4>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc870e8b" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h2 id="orgc870e8b"><span class="section-number-2">4</span> Hand</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgfe7888e" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgfe7888e"><span class="section-number-3">4.1</span> Asynchronous Events (Again): The Mouse</h3>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgc3ec274" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgc3ec274"><span class="section-number-3">4.2</span> Transform events into types</h3>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org7a94e0b" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org7a94e0b"><span class="section-number-3">4.3</span> Takeaways</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org206d4ed" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org206d4ed"><span class="section-number-4">4.3.1</span> Asynchronous events are all created equal (Again)</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org0aaaa16" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org0aaaa16"><span class="section-number-4">4.3.2</span> Games anyone?</h4>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org64c4e4b" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h2 id="org64c4e4b"><span class="section-number-2">5</span> All Together</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgab5a0ce" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgab5a0ce"><span class="section-number-3">5.1</span> Import and Export</h3>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgced591c" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgced591c"><span class="section-number-3">5.2</span> Model</h3>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgc829aa5" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgc829aa5"><span class="section-number-3">5.3</span> Init</h3>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgc5b4ff2" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgc5b4ff2"><span class="section-number-3">5.4</span> Update</h3>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgcab3f37" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgcab3f37"><span class="section-number-3">5.5</span> Subscriptions</h3>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org880e76e" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org880e76e"><span class="section-number-3">5.6</span> Takeaways</h3>
+<div class="outline-text-3" id="text-5-6">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org8b36a21" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org8b36a21"><span class="section-number-4">5.6.1</span> The Elm architecture is scalable</h4>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org06aeeac" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h4 id="org06aeeac"><span class="section-number-4">5.6.2</span> There is more behind Map than your eyes see now</h4>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<script src="file:reveal.js-master/lib/js/head.min.js"></script>
+<script src="file:reveal.js-master/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'file:reveal.js-master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'file:reveal.js-master/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:reveal.js-master/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:reveal.js-master/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'file:reveal.js-master/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+,});
+</script>
+</body>
+</html>

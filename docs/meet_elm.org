@@ -1,0 +1,171 @@
+#+OPTIONS: reveal_center:t reveal_control:t reveal_height:-1
+#+OPTIONS: reveal_history:nil reveal_keyboard:t reveal_overview:t
+#+OPTIONS: reveal_progress:t reveal_rolling_links:nil
+#+OPTIONS: reveal_single_file:nil reveal_slide_number:"c"
+#+OPTIONS: reveal_title_slide:auto reveal_width:-1
+#+REVEAL_MARGIN: -1
+#+REVEAL_MIN_SCALE: -1
+#+REVEAL_MAX_SCALE: -1
+#+REVEAL_ROOT: file:reveal.js-master
+#+REVEAL_TRANS: default
+#+REVEAL_SPEED: default
+#+REVEAL_THEME: moon
+#+REVEAL_EXTRA_CSS:
+#+REVEAL_EXTRA_JS:
+#+REVEAL_HLEVEL: 1
+#+REVEAL_TITLE_SLIDE_BACKGROUND:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_SIZE:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_POSITION:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_REPEAT:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_TRANSITION:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_SIZE:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_POSITION:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_REPEAT:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_TRANSITION:
+#+REVEAL_MATHJAX_URL: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+#+REVEAL_PREAMBLE:
+#+REVEAL_HEAD_PREAMBLE:
+#+REVEAL_POSTAMBLE:
+#+REVEAL_MULTIPLEX_ID:
+#+REVEAL_MULTIPLEX_SECRET:
+#+REVEAL_MULTIPLEX_URL:
+#+REVEAL_MULTIPLEX_SOCKETIO_URL:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_PLUGINS:
+#+REVEAL_DEFAULT_FRAG_STYLE:
+#+REVEAL_INIT_SCRIPT:
+#+REVEAL_HIGHLIGHT_CSS: %r/lib/css/zenburn.css
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Meet Elm
+#+DATE: <2017-10-01 Sun>
+#+AUTHOR: Marco Paolo Valerio Vezzoli
+#+EMAIL: mvezzoli@micron.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 9.1.1)
+
+* Hello World
+** Simplest Program
+let's begin with the most easy program
+#+BEGIN_SRC elm
+main = div [] [text "Hello World"]
+#+END_SRC
+when we save it the formatter changes a little the spaces: it is useful for
+- reading consistently stuff
+- verify trivial sintax errors (as it parse the code in order to
+  format it)
+The formatter nicely integrates all programmer' editors (no notepad)
+*** Import and Export
+It also added a new line with the module declaration: we change it a little
+#+BEGIN_SRC elm
+module Meet.Hello exposing (..)
+#+END_SRC
+now let's add some import that define the html functions
+#+BEGIN_SRC elm
+import Html exposing (div, text, h1)
+#+END_SRC
+** Install Packages
+Before compiling we need to install some packages: you can find a
+complete list at http://package.elm-lang.org
+#+BEGIN_SRC sh
+elm-package install elm-lang/html
+#+END_SRC
+this will install the html package and its dependencies
+
+elm creates a file =elm-package.json= with all ours specifications and
+a directory =elm-stuff= where all packages will be downloaded
+** Compile
+To compile the package we can use
+#+BEGIN_SRC sh
+elm-make Hello.elm --output index.html
+#+END_SRC
+this will create an html file with the compiled program
+** Add Types
+We can add some warning to the compiler
+#+BEGIN_SRC sh
+elm-make --warn Hello.elm --output index.html
+#+END_SRC
+this gives us a hint about the type of our value: we can write a type
+declaration like this
+#+BEGIN_SRC elm
+main : Html.Html Never
+#+END_SRC
+immediately before the code
+
+Never is a type with no values: this means that our HTML is not dynamic
+** Generate Json Lib
+We can also generate a json library which can help us integrating with
+other HTML
+#+BEGIN_SRC elm
+elm-make --warn Hello.elm --output main.js
+#+END_SRC
+we just need to add this in the body
+#+BEGIN_SRC html
+  <body>
+    <H1>This is the external HTML<H1>
+    <script type="text/javascript" src="main.js"></script>
+    <div id="main"></div>
+    <script type="text/javascript">
+      var d = document.getElementById('main');
+      Elm.Meet.Hello.embed(d);
+    </script>
+  </body>
+#+END_SRC
+** Takeaways
+- Compiler infer types
+  - this helps us a lot in debugging and development
+  - a lot of effort has been put since the beginning to get useful
+    error messages
+  - the language support parametric polymorphism
+- Semantic packaging and modules
+  - modules are the mean to provide encapsulation
+  - published module are enforced to change major version if the
+    exposed signatures change
+  - this means that module upgrades don't hurt
+* Simple Form
+** Elm Architecture: A Simple Form
+*** Model
+*** Messages
+*** Update
+*** View
+** Extending The Form
+*** Adding more Widget
+*** Adding more Messages
+*** Extending the State
+*** Extending the Update
+** Debugger
+*** Compiling with debugger option
+*** Time Travelling
+** Takeaways
+*** The Type System support refactoring
+*** The Purity support debug
+* Clock
+** Elm Architecture (Again): Getting The Time
+*** Subscriptions
+*** SVN
+** Takeaways
+*** Asynchronous events are all created equal
+*** Dynamic DOM Update
+*** Effects are accessible: type system aids checking
+* Hand
+** Asynchronous Events (Again): The Mouse
+** Transform events into types
+** Takeaways
+*** Asynchronous events are all created equal (Again)
+*** Games anyone?
+* All Together
+** Import and Export
+** Model
+** Init
+** Update
+** Subscriptions
+** Takeaways
+*** The Elm architecture is scalable
+*** There is more behind Map than your eyes see now
