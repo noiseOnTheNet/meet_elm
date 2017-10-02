@@ -66,7 +66,7 @@ update message model =
             ( { model | counter = model.counter + 1 }, Cmd.none )
 
         Decrease ->
-            ( { model | counter = model.counter + 1 }, Cmd.none )
+            ( { model | counter = model.counter - 1 }, Cmd.none )
 
         UpdatePass1 value ->
             let
@@ -111,11 +111,11 @@ view : Model -> Html Msg
 view model =
     div []
         [ button [ onClick Increase ] [ text "Add 1" ]
-        , div [] [ text <| toString model.counter ]
+        , div [] [ text <| "Buy " ++ (toString model.counter) ++ " bananas" ]
         , button [ onClick Decrease ] [ text "Remove 1" ]
         , hr [] []
         , div []
-            [ label [ for "pass1" ] [ text "type your pasaword" ]
+            [ label [ for "pass1" ] [ text "type your password" ]
             , input
                 [ id "pass1"
                 , onInput UpdatePass1

@@ -31,8 +31,8 @@
 #+REVEAL_MULTIPLEX_SECRET:
 #+REVEAL_MULTIPLEX_URL:
 #+REVEAL_MULTIPLEX_SOCKETIO_URL:
-#+REVEAL_SLIDE_HEADER:
-#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER: <div><div style="background:url('../images/LeftPointingHand.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 100px;"></div>Meet Elm</div>
+#+REVEAL_SLIDE_FOOTER: 
 #+REVEAL_PLUGINS:
 #+REVEAL_DEFAULT_FRAG_STYLE:
 #+REVEAL_INIT_SCRIPT:
@@ -65,7 +65,7 @@ The formatter nicely integrates all programmer' editors (no notepad)
 *** Import and Export
 It also added a new line with the module declaration: we change it a little
 #+BEGIN_SRC elm
-module Meet.Hello exposing (..)
+module Hello exposing (..)
 #+END_SRC
 now let's add some import that define the html functions
 #+BEGIN_SRC elm
@@ -114,7 +114,7 @@ we just need to add this in the body
     <div id="main"></div>
     <script type="text/javascript">
       var d = document.getElementById('main');
-      Elm.Meet.Hello.embed(d);
+      Elm.Hello.embed(d);
     </script>
   </body>
 #+END_SRC
@@ -131,10 +131,89 @@ we just need to add this in the body
   - this means that module upgrades don't hurt
 * Simple Form
 ** Elm Architecture: A Simple Form
-*** Model
+From version 0.17 of Elm, the previous language has been greatly
+simplified removing the whole "reactive" infrastructure for a less
+powerful but efficient and clear pattern
+
+We start this journey with two buttons which can increase or decrease
+an integer value
+*** The Main Function
+the main function accepts a record containing 4 functions: we will go
+through each one
+#+BEGIN_SRC elm
+main : Program Never Model Msg
+main =
+    Html.program
+        { init = init
+        , subscriptions = subscriptions
+        , update = update
+        , view = view
+        }
+#+END_SRC
+The type means: this is a =Program= that has no startup input and an
+inner state of type =Model= which is modified by event of type =Msg=
+*** The Model
+this type represents the state of the application
+#+BEGIN_SRC elm
+type alias Model = Int
+#+END_SRC
+Alias are useful to read the code and the error messages
+
+We start simple this time, but we will refactor later
+*** The Init
+we need to set up the initial state at the beginning of the application
+#+BEGIN_SRC elm
+init : ( Model, Cmd Msg )
+init = ( 0, Cmd.none )
+#+END_SRC
+init returns a pair whose first element is the status and the second
+is an "effect" value or a command to execute something (e.g. send a message to a server).
+
+We start with 0 and no effect.
+
+Cmd is a PARAMETRIC type which accepts another type as parameter
 *** Messages
+this data type should represent the asynchronous signals coming from
+the application
+#+BEGIN_SRC elm 
+type Msg = Increment | Decrement
+#+END_SRC
+this is called a UNION type; in this case it has exactly 2 values
 *** Update
+this function will change the state of the application according to
+signals
+#+BEGIN_SRC elm 
+update : Msg -> Model -> ( Model, Cmd Msg )
+update message model = 
+    case message of
+        Increase ->
+            ( model + 1, Cmd.none )
+
+        Decrease ->
+            ( model - 1, Cmd.none )
+#+END_SRC
+the type tells that this function expect the event as first input, the
+old status as second and gives out the modified status paired with a
+command (or "effect")
 *** View
+this function shows the page starting from the model
+#+BEGIN_SRC elm
+view : Model -> Html Msg
+view model =
+    div []
+        [ button [ onClick Increase ] [ text "Add 1" ]
+        , div [] [ text <| "Buy " ++ (toString model) ++ " bananas" ]
+        , button [ onClick Decrease ] [ text "Remove 1" ]
+        ]
+#+END_SRC
+*** update Index.html
+a little change is needed in the html call to find the module
+#+BEGIN_SRC html
+    <script type="text/javascript">
+      var d = document.getElementById('main');
+      Elm.Form.embed(d);
+    </script>
+#+END_SRC
 ** Extending The Form
 *** Adding more Widget
 *** Adding more Messages
