@@ -108,7 +108,7 @@ we just need to add this in the body
 
 From version 0.17 of Elm, the previous language has been greatly
 simplified removing the whole "reactive" infrastructure for a less
-powerful but efficient and clear pattern
+general but clearer pattern
 
 We start this journey with two buttons which can increase or decrease
 an integer value
@@ -215,14 +215,158 @@ a little change is needed in the html call to find the module
 
 ### Adding more Widget
 
+we will now add to the view a password field and its confirmation; we
+want to be able to signal to the users the quality of the password
+(weak, strong) and if both fields match
+
+First we add the password fields in the view and add an event to detect change
+
+    div  []
+      [ div []
+          [ label [ for "pass1" ] [ text "type your password" ]
+          , input
+    	  [ id "pass1"
+    	  , onInput UpdatePass1
+    	  , type_ "password"
+    	  , value model.pass1
+    	  ]
+    	  []
+          ]
+      , div []
+          [ label [ for "pass2" ] [ text "retype your password" ]
+          , input
+    	  [ id "pass2"
+    	  , onInput UpdatePass2
+    	  , type_ "password"
+    	  , value model.pass2
+    	  ]
+    	  []
+          ]
+      ]
+
 
 ### Adding more Messages
+
+the two messages are added to the union type to take into account each
+chenge in the textfields
+
+    type Msg
+        = Increase
+        | Decrease
+        | UpdatePass1 String
+        | UpdatePass2 String
+
+the new messages now carry a value of type string
 
 
 ### Extending the State
 
+In order to store the new information we tranform the state into a
+record
+
+    type alias Model =
+        { counter : Int
+        , pass1 : String
+        , pass2 : String
+        }
+    
+    init : ( Model, Cmd Msg )
+    init =
+        ( { counter = 1
+          , pass1 = ""
+          , pass2 = ""
+          }
+        , Cmd.none
+        )
+
 
 ### Extending the Update
+
+If we try to compile it now we get an error about the case switch not
+to be complete; we can add two cases; this demosntrates also type
+matching and decomposition
+
+    UpdatePass1 value ->
+    	( { model
+    	    | pass1 = value
+    	  }
+    	, Cmd.none
+    	)
+    
+    UpdatePass2 value ->
+    	( { model
+    	    | pass2 = value
+    	  }
+    	, Cmd.none
+    	)
+
+
+### Adding Password Matching and Security: the Model
+
+We want to feedback the user about the level of security; we can
+capture this in a type
+
+    type PassSecurity
+        = Weak
+        | Minimal
+        | Good
+
+and put into our model
+
+    type alias Model =
+        { counter : Int
+        , pass1 : String
+        , pass2 : String
+        , passMatching : Bool
+        , passSecurity : PassSecurity
+        }
+
+in our init code we add initial values
+
+    , pass2 = ""
+    , passMatching = False
+    , passSecurity = Weak
+    }
+
+
+### Completing the view : security level
+
+now we can show the value
+
+    , div []
+        [ label [ for "pass1" ] [ text "type your password" ]
+        , input
+    	[ id "pass1"
+    	, onInput UpdatePass1
+    	, type_ "password"
+    	, value model.pass1
+    	]
+    	[]
+        , text <| "Security " ++ (toString model.passSecurity)
+        ]
+    , hr [] []
+
+
+### Completing the view: password matching
+
+    , div []
+        [ label [ for "pass2" ] [ text "retype your password" ]
+        , input
+    	[ id "pass2"
+    	, onInput UpdatePass2
+    	, type_ "password"
+    	, value model.pass2
+    	]
+    	[]
+        , let
+    	( message, color ) =
+    	    if model.passMatching then
+    		( "Matching", "green" )
+    	    else
+    		( "Not Matching", "red" )
+          in
+    	div [ style [ ( "color", color ) ] ] [ text message ]
+        ]
 
 
 ## Debugger
@@ -236,11 +380,8 @@ a little change is needed in the html call to find the module
 
 ## Takeaways
 
-
-### The Type System support refactoring
-
-
-### The Purity support debug
+-   The Type System support refactoring
+-   The Purity support debug
 
 
 # Clock
@@ -257,14 +398,9 @@ a little change is needed in the html call to find the module
 
 ## Takeaways
 
-
-### Asynchronous events are all created equal
-
-
-### Dynamic DOM Update
-
-
-### Effects are accessible: type system aids checking
+-   Asynchronous events are all created equal
+-   Dynamic DOM Update
+-   Effects are accessible: type system aids checking
 
 
 # Hand
@@ -278,11 +414,8 @@ a little change is needed in the html call to find the module
 
 ## Takeaways
 
-
-### Asynchronous events are all created equal (Again)
-
-
-### Games anyone?
+-   Asynchronous events are all created equal (Again)
+-   Games anyone?
 
 
 # All Together
@@ -305,9 +438,6 @@ a little change is needed in the html call to find the module
 
 ## Takeaways
 
-
-### The Elm architecture is scalable
-
-
-### There is more behind Map than your eyes see now
+-   The Elm architecture is scalable
+-   There is more behind Map than your eyes see now
 
