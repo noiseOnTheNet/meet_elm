@@ -31,7 +31,7 @@
 #+REVEAL_MULTIPLEX_SECRET:
 #+REVEAL_MULTIPLEX_URL:
 #+REVEAL_MULTIPLEX_SOCKETIO_URL:
-#+REVEAL_SLIDE_HEADER: <div><div style="background:url('../images/LeftPointingHand.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 100px;"></div>Meet Elm</div>
+#+REVEAL_SLIDE_HEADER: <div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div>
 #+REVEAL_SLIDE_FOOTER: 
 #+REVEAL_PLUGINS:
 #+REVEAL_DEFAULT_FRAG_STYLE:
@@ -39,7 +39,7 @@
 #+REVEAL_HIGHLIGHT_CSS: %r/lib/css/zenburn.css
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
-#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:t f:t inline:t num:t
 #+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
 #+TITLE: Meet Elm
@@ -215,34 +215,23 @@ a little change is needed in the html call to find the module
     </script>
 #+END_SRC
 ** Extending The Form
-*** Adding more Widget
 we will now add to the view a password field and its confirmation; we
 want to be able to signal to the users the quality of the password
 (weak, strong) and if both fields match
-
+*** Adding more Widgets
 First we add the password fields in the view and add an event to detect change
 #+BEGIN_SRC elm
       div  []
         [ div []
             [ label [ for "pass1" ] [ text "type your password" ]
-            , input
-                [ id "pass1"
+            , input [ id "pass1"
                 , onInput UpdatePass1
                 , type_ "password"
                 , value model.pass1
                 ]
                 []
             ]
-        , div []
-            [ label [ for "pass2" ] [ text "retype your password" ]
-            , input
-                [ id "pass2"
-                , onInput UpdatePass2
-                , type_ "password"
-                , value model.pass2
-                ]
-                []
-            ]
+        , -- some thing for pass2
         ]
 #+END_SRC
 *** Adding more Messages
@@ -314,6 +303,7 @@ type alias Model =
     , passSecurity : PassSecurity
     }
 #+END_SRC
+*** Extending the code setup
 in our init code we add initial values
 #+BEGIN_SRC elm
       , pass2 = ""
@@ -322,7 +312,7 @@ in our init code we add initial values
       }
 #+END_SRC
 *** Completing the view : security level
-now we can show the value
+now we can show the value of the security
 #+BEGIN_SRC elm
         , div []
             [ label [ for "pass1" ] [ text "type your password" ]
@@ -338,6 +328,7 @@ now we can show the value
         , hr [] []
 #+END_SRC
 *** Completing the view: password matching
+we also show a colored status for pattern matching
 #+BEGIN_SRC elm
         , div []
             [ label [ for "pass2" ] [ text "retype your password" ]
@@ -358,20 +349,103 @@ now we can show the value
                 div [ style [ ( "color", color ) ] ] [ text message ]
             ]
 #+END_SRC
+*** Completing the update: security logic
+as an example we may decide that security is given by length alone
+#+BEGIN_SRC elm
+        UpdatePass1 value ->
+            let
+                passLength =
+                    String.length value
+
+                security =
+                    if passLength < 4 then
+                        Weak
+                    else
+                        (if passLength < 6 then
+                            Minimal
+                         else
+                            Good
+                        )
+            in
+                ( { model | pass1 = value, passSecurity = security }, Cmd.none )
+#+END_SRC
+*** Completing the update: password matching
+We also can add a comparison between passwords
+#+BEGIN_SRC elm
+        UpdatePass2 value ->
+            let
+                match =
+                    value == model.pass1
+            in
+                ( { model
+                    | pass2 = value
+                    , passMatching = match
+                  }
+                , Cmd.none
+                )
+#+END_SRC
+this check must be added on the other case in order to make everything correct
 ** Debugger
+Elm code does not have a lot of problems that you can meet in common
+javascript; but this is not enough: we want the program to work as it
+was intended. This may be due to an incorrect logic.
+
+You can check unintended behaviours using the debugger; it is also fun
+to see how the program actually works.
 *** Compiling with debugger option
+You can compile the form with the =--debug= option
+#+BEGIN_SRC sh
+elm-make Form.elm --warn --debug --output main.js
+#+END_SRC
+this is useful in development: production code should not be compiled
+in this way
+
+In the page now a new control appears which counts every event recorded
 *** Time Travelling
+through the debugging interface it is possible to:
+- move to any recorded event and see the internal state while the GUI updates
+- load and save all events list: this is great to report problems and
+  reproduce each step
 ** Takeaways
 - The Type System support refactoring
 - The Purity support debug
 * Clock
 ** Elm Architecture (Again): Getting The Time
+In this example we are creating a simple clock in elm
 *** Subscriptions
+Elm handles those asynchronous events which are not related to the UI
+with subscriptions
+
+A typical example would be server answers to http request; getting the
+time is another.
+#+BEGIN_SRC elm
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Time.every (1 * Time.second) Tick
+#+END_SRC
+
+*** Model and Init
+Let's start modelling the status to be the seconds of the current
+minute
+#+BEGIN_SRC elm
+type alias Model =
+    Int
+
+init : ( Model, Cmd Msg )
+init =
+    ( 1, Cmd.none )
+#+END_SRC
 *** SVN
+we use SVN to draw the clock
+#+BEGIN_SRC elm
+import Svg exposing (svg, circle, line)
+import Svg.Attributes exposing ( --many things here
+
+#+END_SRC
 ** Takeaways
 - Asynchronous events are all created equal
--  Dynamic DOM Update
--  Effects are accessible: type system aids checking
+  - Dynamic DOM Update
+  - Effects are accessible: type system aids checking
 * Hand
 ** Asynchronous Events (Again): The Mouse
 ** Transform events into types
