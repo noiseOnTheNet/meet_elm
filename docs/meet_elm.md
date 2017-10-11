@@ -212,36 +212,26 @@ a little change is needed in the html call to find the module
 
 ## Extending The Form
 
-
-### Adding more Widget
-
 we will now add to the view a password field and its confirmation; we
 want to be able to signal to the users the quality of the password
 (weak, strong) and if both fields match
+
+
+### Adding more Widgets
 
 First we add the password fields in the view and add an event to detect change
 
     div  []
       [ div []
           [ label [ for "pass1" ] [ text "type your password" ]
-          , input
-    	  [ id "pass1"
+          , input [ id "pass1"
     	  , onInput UpdatePass1
     	  , type_ "password"
     	  , value model.pass1
     	  ]
     	  []
           ]
-      , div []
-          [ label [ for "pass2" ] [ text "retype your password" ]
-          , input
-    	  [ id "pass2"
-    	  , onInput UpdatePass2
-    	  , type_ "password"
-    	  , value model.pass2
-    	  ]
-    	  []
-          ]
+      , -- some thing for pass2
       ]
 
 
@@ -321,6 +311,9 @@ and put into our model
         , passSecurity : PassSecurity
         }
 
+
+### Extending the code setup
+
 in our init code we add initial values
 
     , pass2 = ""
@@ -349,6 +342,8 @@ now we can show the value
 
 ### Completing the view: password matching
 
+we also show a colored status for pattern matching
+
     , div []
         [ label [ for "pass2" ] [ text "retype your password" ]
         , input
@@ -369,13 +364,76 @@ now we can show the value
         ]
 
 
+### Completing the update: security logic
+
+as an example we may decide that security is given by length alone
+
+    UpdatePass1 value ->
+        let
+    	passLength =
+    	    String.length value
+    
+    	security =
+    	    if passLength < 4 then
+    		Weak
+    	    else
+    		(if passLength < 6 then
+    		    Minimal
+    		 else
+    		    Good
+    		)
+        in
+    	( { model | pass1 = value, passSecurity = security }, Cmd.none )
+
+
+### Completing the update: password matching
+
+We also can add a comparison between passwords
+
+    UpdatePass2 value ->
+        let
+    	match =
+    	    value == model.pass1
+        in
+    	( { model
+    	    | pass2 = value
+    	    , passMatching = match
+    	  }
+    	, Cmd.none
+    	)
+
+this check must be added on the other case in order to make everything correct
+
+
 ## Debugger
+
+Elm code does not have a lot of problems that you can meet in common
+javascript; but this is not enough: we want the program to work as it
+was intended. This may be due to an incorrect logic.
+
+You can check unintended behaviours using the debugger; it is also fun
+to see how the program actually works.
 
 
 ### Compiling with debugger option
 
+You can compile the form with the `--debug` option
+
+    elm-make Form.elm --warn --debug --output main.js
+
+this is useful in development: production code should not be compiled
+in this way
+
+In the page now a new control appears which counts every event recorded
+
 
 ### Time Travelling
+
+through the debugging interface it is possible to:
+
+-   move to any recorded event and see the internal state while the GUI updates
+-   load and save all events list: this is great to report problems and
+    reproduce each step
 
 
 ## Takeaways
@@ -389,18 +447,116 @@ now we can show the value
 
 ## Elm Architecture (Again): Getting The Time
 
+In this example we are creating a simple clock in elm
 
-### Subscriptions
+
+### Subscriptions and messages
+
+Elm handles those asynchronous events which are not related to the UI
+with subscriptions
+
+A typical example would be server answers to http request; getting the
+time is another.
+
+    type Msg = Tick Time
+    
+    subscriptions : Model -> Sub Msg
+    subscriptions model =
+        Time.every (1 * Time.second) Tick
 
 
-### SVN
+### Model and Init
+
+Let's start modelling the status to be the seconds of the current
+minute
+
+    type alias Model =
+        Int
+    
+    init : ( Model, Cmd Msg )
+    init =
+        ( 1, Cmd.none )
+
+
+### Update
+
+every 1 s a Tick event is sent; its value is the number of ms from
+epoch; we transform it into the seconds of current minute
+
+    update : Msg -> Model -> ( Model, Cmd Msg )
+    update (Tick time) model =
+        ( (floor (time / 1000)) % 60, Cmd.none )
+
+
+### SVN: Declaration
+
+we use SVN to draw the clock
+
+    import Svg exposing (svg, circle, line)
+    import Svg.Attributes exposing ( --many things here
+
+
+### SVN: view part 1
+
+first a little trigonometry
+
+    view : Model -> Html Msg
+    view model =
+        let
+    	size =
+    	    { width = 300, height = 300 }
+    
+    	center =
+    	    { x = size.width / 2, y = size.height / 2 }
+    
+    	radius =
+    	    size.width / 2
+    
+    	angle =
+    	    2 * pi * (toFloat model) / 60
+    
+    	hand =
+    	    { x = center.x + radius * cos angle
+    	    , y = center.y + radius * sin angle
+    	    }
+
+
+### SVG: view part 2
+
+then the actual draw
+
+    in
+        div []
+    	[ svg
+    	    [ width <| toString size.width
+    	    , height <| toString size.height
+    	    , viewBox <| "0 0 " ++ (toString size.width) ++ " " ++ (toString size.height)
+    	    ]
+    	    [ circle
+    		[ cx <| toString center.x
+    		, cy <| toString center.y
+    		, r <| toString radius
+    		, fill "blue"
+    		]
+    		[]
+    	    , line
+    		[ x1 <| toString center.x
+    		, y1 <| toString center.y
+    		, x2 <| toString hand.x
+    		, y2 <| toString hand.y
+    		, stroke "yellow"
+    		, strokeWidth "4"
+    		]
+    		[]
+    	    ]
+    	]
 
 
 ## Takeaways
 
 -   Asynchronous events are all created equal
--   Dynamic DOM Update
--   Effects are accessible: type system aids checking
+    -   Dynamic DOM Update
+    -   Effects are accessible: type system aids checking
 
 
 # Hand

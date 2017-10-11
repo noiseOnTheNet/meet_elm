@@ -419,13 +419,15 @@ through the debugging interface it is possible to:
 * Clock
 ** Elm Architecture (Again): Getting The Time
 In this example we are creating a simple clock in elm
-*** Subscriptions
+*** Subscriptions and messages
 Elm handles those asynchronous events which are not related to the UI
 with subscriptions
 
 A typical example would be server answers to http request; getting the
 time is another.
 #+BEGIN_SRC elm
+type Msg = Tick Time
+
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Time.every (1 * Time.second) Tick
@@ -442,12 +444,72 @@ init : ( Model, Cmd Msg )
 init =
     ( 1, Cmd.none )
 #+END_SRC
-*** SVN
+*** Update
+every 1 s a Tick event is sent; its value is the number of ms from
+epoch; we transform it into the seconds of current minute
+#+BEGIN_SRC elm
+update : Msg -> Model -> ( Model, Cmd Msg )
+update (Tick time) model =
+    ( (floor (time / 1000)) % 60, Cmd.none )
+#+END_SRC
+*** SVN: Declaration
 we use SVN to draw the clock
 #+BEGIN_SRC elm
 import Svg exposing (svg, circle, line)
 import Svg.Attributes exposing ( --many things here
 
+#+END_SRC
+*** SVN: view part 1
+first a little trigonometry
+#+BEGIN_SRC elm
+view : Model -> Html Msg
+view model =
+    let
+        size =
+            { width = 300, height = 300 }
+
+        center =
+            { x = size.width / 2, y = size.height / 2 }
+
+        radius =
+            size.width / 2
+
+        angle =
+            2 * pi * (toFloat model) / 60
+
+        hand =
+            { x = center.x + radius * cos angle
+            , y = center.y + radius * sin angle
+            }
+#+END_SRC
+*** SVG: view part 2
+then the actual draw
+#+BEGIN_SRC elm
+    in
+        div []
+            [ svg
+                [ width <| toString size.width
+                , height <| toString size.height
+                , viewBox <| "0 0 " ++ (toString size.width) ++ " " ++ (toString size.height)
+                ]
+                [ circle
+                    [ cx <| toString center.x
+                    , cy <| toString center.y
+                    , r <| toString radius
+                    , fill "blue"
+                    ]
+                    []
+                , line
+                    [ x1 <| toString center.x
+                    , y1 <| toString center.y
+                    , x2 <| toString hand.x
+                    , y2 <| toString hand.y
+                    , stroke "yellow"
+                    , strokeWidth "4"
+                    ]
+                    []
+                ]
+            ]
 #+END_SRC
 ** Takeaways
 - Asynchronous events are all created equal
