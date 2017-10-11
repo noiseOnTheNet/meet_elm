@@ -574,22 +574,121 @@ then the actual draw
 -   Games anyone?
 
 
-# All Together
+# All Together Now
+
+
+## Overview
+
+-   what if we want to integrate more modules into one?
+-   is it possible to create reusable "widgets" (e.g. a calendar)?
+-   How can types be matched in order to reuse the status and message types?
 
 
 ## Import and Export
 
+we can import other modules from the main module like this
 
-## Model
+    import Clock
+    import Form
+    import Hand
+
+but what do they have to export?
+
+-   the Model and Msg types
+-   the init function
+-   the update function
+-   the subscription function
+-   the view function
+
+
+## Model and Msg
+
+to have a working model we must allow space for each of the sub models
+
+    type alias Model =
+        { hand : Hand.Model
+        , clock : Clock.Model
+        , form : Form.Model
+        }
+
+the same is true for messages
+
+    type Msg
+        = HandMsg Hand.Msg
+        | ClockMsg Clock.Msg
+        | FormMsg Form.Msg
 
 
 ## Init
 
+the init also allows for each module to have side effects when
+initialized; it is useful to execute all of them in sequence;
+`Cmd.map` allows to remap messages into the common type
 
-## Update
+    init =
+        let
+    	( handM, handC ) =
+    	    Hand.init
+    	-- and so on for other modules
+        in
+    	( { hand = handM
+    	  , clock = clockM
+    	  , form = formM
+    	  }
+    	, Cmd.batch
+    	    [ Cmd.map HandMsg handC
+    	    , Cmd.map ClockMsg clockC
+    	    , Cmd.map FormMsg formC
+    	    ]
+    	)
 
 
 ## Subscriptions
+
+also subscriptions can be glued together; Sub.map is the function to
+remap the messages here
+
+    subscriptions : Model -> Sub Msg
+    subscriptions model =
+        let
+    	clockS =
+    	    Sub.map ClockMsg <| Clock.subscriptions model.clock
+    
+    	formS =
+    	    Sub.map FormMsg <| Form.subscriptions model.form
+    
+    	handS =
+    	    Sub.map HandMsg <| Hand.subscriptions model.hand
+        in
+    	Sub.batch [ clockS, formS, handS ]
+
+
+## Update
+
+    update : Msg -> Model -> ( Model, Cmd Msg )
+    update message model =
+        case message of
+    	ClockMsg msg ->
+    	    let
+    		( clockNewM, clockNewC ) =
+    		    Clock.update msg model.clock
+    	    in
+    		( { model | clock = clockNewM }, Cmd.map ClockMsg clockNewC )
+    -- more cases follow
+
+
+## View
+
+`Html.map` provides the type mapping functionality also for the view
+part
+
+    view : Model -> Html Msg
+    view model =
+        div []
+    	[ Html.map ClockMsg <| Clock.view model.clock
+    	, Html.map HandMsg <| Hand.view model.hand
+    	, Html.map FormMsg <| Form.view model.form
+    	]
 
 
 ## Takeaways
