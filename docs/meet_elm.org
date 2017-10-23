@@ -50,13 +50,21 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 9.1.1)
+#+LATEX_HEADER: \usepackage{bookman}
 #+LATEX_HEADER: \usepackage{minted}
 #+LATEX_HEADER: \usepackage{color}
+#+LATEX_HEADER: \usepackage{textpos}
+#+LATEX_HEADER: \usepackage{epstopdf}
 #+LATEX_HEADER: \mode<beamer>{\usetheme{Madrid}}
 #+startup: beamer
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [smaller]
-#+BEAMER_FRAME_LEVEL: 3
+#+BEAMER_FRAME_LEVEL: 2
+#+LATEX_HEADER: \logo{\includegraphics[height=0.79cm,width=1cm]{../images/micron_logoB.eps}}
+#+LATEX_HEADER: \addtobeamertemplate{frametitle}{}{%
+#+LATEX_HEADER: \begin{textblock*}{100mm}(.85\textwidth,-1cm)
+#+LATEX_HEADER: \includegraphics[height=0.79cm,width=1cm]{../images/micron_logo.eps}
+#+LATEX_HEADER: \end{textblock*}}
 #+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
 * Hello World
 ** Simplest Program
