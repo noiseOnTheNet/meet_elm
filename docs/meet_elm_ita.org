@@ -1,0 +1,351 @@
+#+OPTIONS: reveal_center:t reveal_control:t reveal_height:-1
+#+OPTIONS: reveal_history:nil reveal_keyboard:t reveal_overview:t
+#+OPTIONS: reveal_progress:t reveal_rolling_links:nil
+#+OPTIONS: reveal_single_file:nil reveal_slide_number:"c"
+#+OPTIONS: reveal_title_slide:auto reveal_width:-1
+#+REVEAL_MARGIN: -1
+#+REVEAL_MIN_SCALE: -1
+#+REVEAL_MAX_SCALE: -1
+#+REVEAL_ROOT: file:reveal.js-master
+#+REVEAL_TRANS: default
+#+REVEAL_SPEED: default
+#+REVEAL_THEME: moon
+#+REVEAL_EXTRA_CSS:
+#+REVEAL_EXTRA_JS:
+#+REVEAL_HLEVEL: 1
+#+REVEAL_TITLE_SLIDE_BACKGROUND:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_SIZE:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_POSITION:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_REPEAT:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_TRANSITION:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_SIZE:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_POSITION:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_REPEAT:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_TRANSITION:
+#+REVEAL_MATHJAX_URL: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+#+REVEAL_PREAMBLE:
+#+REVEAL_HEAD_PREAMBLE:
+#+REVEAL_POSTAMBLE:
+#+REVEAL_MULTIPLEX_ID:
+#+REVEAL_MULTIPLEX_SECRET:
+#+REVEAL_MULTIPLEX_URL:
+#+REVEAL_MULTIPLEX_SOCKETIO_URL:
+#+REVEAL_SLIDE_HEADER: <div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div>
+#+REVEAL_SLIDE_FOOTER: 
+#+REVEAL_PLUGINS:
+#+REVEAL_DEFAULT_FRAG_STYLE:
+#+REVEAL_INIT_SCRIPT:
+#+REVEAL_HIGHLIGHT_CSS: %r/lib/css/zenburn.css
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:t f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Introduzione a Elm
+#+DATE: <2017-10-01 Sun>
+#+AUTHOR: Marco Paolo Valerio Vezzoli
+#+EMAIL: mvezzoli@micron.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 9.1.1)
+#+LATEX_HEADER: \usepackage{bookman}
+#+LATEX_HEADER: \usepackage{minted}
+#+LATEX_HEADER: \usepackage{color}
+#+LATEX_HEADER: \usepackage{textpos}
+#+LATEX_HEADER: \usepackage{epstopdf}
+#+LATEX_HEADER: \mode<beamer>{\usetheme{Madrid}}
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [smaller]
+#+BEAMER_FRAME_LEVEL: 2
+#+LATEX_HEADER: \logo{\includegraphics[height=0.79cm,width=1cm]{../images/micron_logoB.eps}}
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+* Una semplice Form
+*** Elm Architecture: Una semplice Form
+ Dalla versione 0.17 of Elm, il linguaggio precedente è stato
+ notevolmente semplificato rimuovendo l'infrastruttura "reattiva" per
+ un pattern meno generale ma piú chiaro
+
+ Iniziamo questo viaggio con due bottoni che possono incrementare o
+ decerementare un valore intero
+*** Elm Architecture: La funzione Main
+la funzione main accetta un record che contiene quattro funzioni:
+andremo a conoscerle una per una
+#+BEGIN_src elm
+main : Program Never Model Msg
+main =
+    Html.program
+        { init = init
+        , subscriptions = subscriptions
+        , update = update
+        , view = view
+        }
+#+END_SRC
+La segnatura di tipo significa: questo è un =Program= che non ha un
+imput a startup, ha uno stato interno di tipo =Model= che viene
+modificato da eventi di tipo =Msg=
+*** Elm Architecture: il Model
+questo tipo rappresenta lo stato interno dell'applicazionr
+#+BEGIN_src elm
+type alias Model = Int
+#+END_SRC
+Gli alias sono utili per leggere i codice ed i messaggi di errore
+
+Cominciamo con un modello semplice che modificheremo in seguito
+*** Elm Architecture: la Init
+dobbiamo inizializzare lo stato del sistema quando viene avviato
+#+BEGIN_src elm
+init : ( Model, Cmd Msg )
+init = ( 0, Cmd.none )
+#+END_SRC
+La funzione =init= restituisce una coppia il cui primo elemento è lo
+stato dell'applicazione e il secondo rappresenta una "azione" da
+compiere (per esempio mandare un messaggio al server)
+
+Iniziamo con stato 0 e nessun effetto.
+
+Il tipo =Cmd= è parametrizzato, ed accetta un altro tipo come
+parametro
+*** Elm Architecture: i messaggi
+questo tipo di dato rappresenta i segnali asincroni che vengono mandati all'applicazione
+#+BEGIN_src elm 
+type Msg = Increment | Decrement
+#+END_SRC
+In questo esempio utilizziamo uno union type che in questo caso ha
+soltanto due costruttori vuoti; in pratica il tipo puó avere solo due
+valori.
+*** Elm Architecture: la Update
+questa funzione restituisce lo stato aggiornato dopo l'arrivo di un
+segnale
+#+BEGIN_src elm 
+update : Msg -> Model -> ( Model, Cmd Msg )
+update message model = 
+    case message of
+        Increase ->
+            ( model + 1, Cmd.none )
+
+        Decrease ->
+            ( model - 1, Cmd.none )
+#+END_SRC
+Il tipo di questa funzione dice che ci aspettiamo un evento come primo
+valore passato alla funzione e lo stato corrente come secondo; il
+valore restitutito è una coppia che contiene lo stato modificato e un
+"effetto" da eseguire.
+*** Elm Architecture: la View
+questa funzione mostra la pagina a partire dal modello
+#+BEGIN_src elm
+view : Model -> Html Msg
+view model =
+    div []
+        [ button [ onClick Increase ] [ text "Add 1" ]
+        , div [] [ text <| "Buy " ++ (toString model) ++ " bananas" ]
+        , button [ onClick Decrease ] [ text "Remove 1" ]
+        ]
+#+END_SRC
+*** Elm Architecture: update Index.html
+è necessario un piccolo cambiamento nell'html per proseguire
+#+BEGIN_SRC html
+    <script type="text/javascript">
+      var d = document.getElementById('main');
+      Elm.Form.embed(d);
+    </script>
+#+END_SRC
+*** Estendere la Form
+ ora aggiungeremo alla vista un campo password e la sua conferma;
+ vogliamo poter segnalare all'utente la qualità della password (forte
+ o debole) e se entrambe i campi corrispondono
+*** Estendere la Form: Aggiungere più Widgets
+    anzitutto aggiungiamo un campo password nella vista e aggiungiamo
+    un evento per rilevare il cambiamento
+  #+BEGIN_src elm
+	div  []
+          [ div []
+	      [ label [ for "pass1" ] [ text "type your password" ]
+	      , input [ id "pass1"
+                  , onInput UpdatePass1
+                  , type_ "password"
+                  , value model.pass1
+                  ]
+                  []
+	      ]
+          , -- some thing for pass2
+          ]
+  #+END_SRC
+*** Estendere la Form: Aggiungere più Messaggi
+I due messaggi vengono aggiunti al tipo unione per considerare
+i cambiamenti in entrambe i campi password
+#+BEGIN_src elm
+type Msg
+    = Increase
+    | Decrease
+    | UpdatePass1 String
+    | UpdatePass2 String
+#+END_SRC
+the new messages now carry a value of type string
+*** Estendere la Form: Estendere lo Stato
+Per contenere maggiori informazioni estendiamo lo stato trasformandolo
+in un record
+
+#+BEGIN_src elm
+type alias Model =
+    { counter : Int
+    , pass1 : String
+    , pass2 : String
+    }
+
+init : ( Model, Cmd Msg )
+init =
+    ( { counter = 1
+      , pass1 = ""
+      , pass2 = ""
+      }
+    , Cmd.none
+    )
+#+END_SRC
+*** Estendere la Form: Estendere l'aggiornamento
+Se provassimo a compilare ora otterremmo un errore dal comando =case=
+poichè il pattern matching non è completo; questi nuovi casi
+dimostrano anche come gestire il pattern matching e la decomposizione dei valori
+#+BEGIN_src elm
+        UpdatePass1 value ->
+                ( { model
+                    | pass1 = value
+                  }
+                , Cmd.none
+                )
+
+        UpdatePass2 value ->
+                ( { model
+                    | pass2 = value
+                  }
+                , Cmd.none
+                )
+
+#+END_SRC
+*** Estendere la Form: Estendere il modello 
+Vorremmo restituire all'utente una informazione relativamente al
+livello di sicurezza: possiamo catturare questo concetto in un tipo
+#+BEGIN_src elm 
+type PassSecurity
+    = Weak
+    | Minimal
+    | Good
+#+END_SRC
+e metterlo nel nostro modello
+#+BEGIN_src elm
+type alias Model =
+    { counter : Int
+    , pass1 : String
+    , pass2 : String
+    , passMatching : Bool
+    , passSecurity : PassSecurity
+    }
+#+END_SRC
+*** Estendere la Form: Extending the code setup
+in our init code we add initial values
+#+BEGIN_src elm
+      , pass2 = ""
+      , passMatching = False
+      , passSecurity = Weak
+      }
+#+END_SRC
+*** Completing the view : security level
+now we can show the value
+#+BEGIN_SRC elm
+        , div []
+            [ label [ for "pass1" ] [ text "type your password" ]
+            , input
+                [ id "pass1"
+                , onInput UpdatePass1
+                , type_ "password"
+                , value model.pass1
+                ]
+                []
+            , text <| "Security " ++ (toString model.passSecurity)
+            ]
+        , hr [] []
+#+END_SRC
+*** Completing the view: password matching
+we also show a colored status for pattern matching
+#+BEGIN_SRC elm
+        , div []
+            [ label [ for "pass2" ] [ text "retype your password" ]
+            , input
+                [ id "pass2"
+                , onInput UpdatePass2
+                , type_ "password"
+                , value model.pass2
+                ]
+                []
+            , let
+                ( message, color ) =
+                    if model.passMatching then
+                        ( "Matching", "green" )
+                    else
+                        ( "Not Matching", "red" )
+              in
+                div [ style [ ( "color", color ) ] ] [ text message ]
+            ]
+#+END_SRC
+*** Completing the update: security logic
+as an example we may decide that security is given by length alone
+#+BEGIN_SRC elm
+        UpdatePass1 value ->
+            let
+                passLength =
+                    String.length value
+
+                security =
+                    if passLength < 4 then
+                        Weak
+                    else
+                        (if passLength < 6 then
+                            Minimal
+                         else
+                            Good
+                        )
+            in
+                ( { model | pass1 = value, passSecurity = security }, Cmd.none )
+#+END_SRC
+*** Completing the update: password matching
+We also can add a comparison between passwords
+#+BEGIN_SRC elm
+        UpdatePass2 value ->
+            let
+                match =
+                    value == model.pass1
+            in
+                ( { model
+                    | pass2 = value
+                    , passMatching = match
+                  }
+                , Cmd.none
+                )
+#+END_SRC
+this check must be added on the other case in order to make everything correct
+*** Debugger
+ Elm code does not have a lot of problems that you can meet in common
+ javascript; but this is not enough: we want the program to work as it
+ was intended. This may be due to an incorrect logic.
+
+ You can check unintended behaviours using the debugger; it is also fun
+ to see how the program actually works.
+*** Debugger: Compiling with debugger option
+You can compile the form with the =--debug= option
+#+BEGIN_SRC sh
+elm-make Form.elm --warn --debug --output main.js
+#+END_SRC
+this is useful in development: production code should not be compiled
+in this way
+
+In the page now a new control appears which counts every event recorded
+*** Debugger: Time Travelling
+through the debugging interface it is possible to:
+- move to any recorded event and see the internal state while the GUI updates
+- load and save all events list: this is great to report problems and
+  reproduce each step
+*** Takeaways
+ - The Type System support refactoring
+ - The Purity support debug
