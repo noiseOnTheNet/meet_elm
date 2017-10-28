@@ -46,7 +46,9 @@
 #+DATE: <2017-10-01 Sun>
 #+AUTHOR: Marco Paolo Valerio Vezzoli
 #+EMAIL: mvezzoli@micron.com
-#+LANGUAGE: en
+#+BEAMER_HEADER: \subtitle{Sviluppo web frontend: semplice, veloce, affidabile, open source}
+#+BEAMER_HEADER: \institute[INST]{Micron inc.}
+#+LANGUAGE: it
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 9.1.1)
@@ -62,6 +64,11 @@
 #+BEAMER_FRAME_LEVEL: 2
 #+LATEX_HEADER: \logo{\includegraphics[height=0.79cm,width=1cm]{../images/micron_logoB.eps}}
 #+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+* Introduzione
+*** Meet Elm
+questa presentazione e il codice si trova liberamente accessibile in
+
+http://github.com/noiseOnTheNet/meet_elm
 * Una semplice Form
 *** Elm Architecture: Una semplice Form
  Dalla versione 0.17 of Elm, il linguaggio precedente è stato
@@ -251,24 +258,24 @@ in our init code we add initial values
       , passSecurity = Weak
       }
 #+END_SRC
-*** Completing the view : security level
-now we can show the value
-#+BEGIN_SRC elm
-        , div []
-            [ label [ for "pass1" ] [ text "type your password" ]
-            , input
-                [ id "pass1"
-                , onInput UpdatePass1
-                , type_ "password"
-                , value model.pass1
-                ]
-                []
-            , text <| "Security " ++ (toString model.passSecurity)
-            ]
-        , hr [] []
-#+END_SRC
-*** Completing the view: password matching
-we also show a colored status for pattern matching
+*** Completare la vista: livello di sicurezza
+  ora possiamo mostrare il valore
+  #+BEGIN_SRC elm
+          , div []
+              [ label [ for "pass1" ] [ text "type your password" ]
+              , input
+                  [ id "pass1"
+                  , onInput UpdatePass1
+                  , type_ "password"
+                  , value model.pass1
+                  ]
+                  []
+              , text <| "Security " ++ (toString model.passSecurity)
+              ]
+          , hr [] []
+  #+END_SRC
+*** Completare la vista: corrispondenza delle password
+mostriamo anche con i colori se le password corrispondono
 #+BEGIN_SRC elm
         , div []
             [ label [ for "pass2" ] [ text "retype your password" ]
@@ -289,8 +296,9 @@ we also show a colored status for pattern matching
                 div [ style [ ( "color", color ) ] ] [ text message ]
             ]
 #+END_SRC
-*** Completing the update: security logic
-as an example we may decide that security is given by length alone
+*** Completare l'update: logica sulla sicurezza
+per esempio possiamo definire il livello di sicurezza basandoci solo
+sulla lunghezza della password
 #+BEGIN_SRC elm
         UpdatePass1 value ->
             let
@@ -309,8 +317,8 @@ as an example we may decide that security is given by length alone
             in
                 ( { model | pass1 = value, passSecurity = security }, Cmd.none )
 #+END_SRC
-*** Completing the update: password matching
-We also can add a comparison between passwords
+*** Completare l'update: corrispondenza password
+Possiamo confrontare le password per vedere se corrispondono
 #+BEGIN_SRC elm
         UpdatePass2 value ->
             let
@@ -326,12 +334,12 @@ We also can add a comparison between passwords
 #+END_SRC
 this check must be added on the other case in order to make everything correct
 *** Debugger
- Elm code does not have a lot of problems that you can meet in common
- javascript; but this is not enough: we want the program to work as it
- was intended. This may be due to an incorrect logic.
+ Il codice Elm non ha molti dei problemi che si incontrano in
+ javascript, ma questo non sempre basta a garantire il corretto
+ funzionamento di un programma.
 
- You can check unintended behaviours using the debugger; it is also fun
- to see how the program actually works.
+ Talvolta è necessario poter utilizzare un debugger: è anche
+ divertente da vedere
 *** Debugger: Compiling with debugger option
 You can compile the form with the =--debug= option
 #+BEGIN_SRC sh

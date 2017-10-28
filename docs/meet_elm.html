@@ -26,26 +26,25 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition=""><h1 class="title">Meet Elm</h1><h2 class="author">Marco Paolo Valerio Vezzoli</h2><h2 class="email"><a href="mailto:mvezzoli@micron.com">mvezzoli@micron.com</a></h2><h2 class="date">2017-10-01 Sun 00:00</h2><p class="date">Created: 2017-10-06 Fri 13:24</p>
+<section id="sec-title-slide" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition=""><h1 class="title">Meet Elm</h1><h2 class="author">Marco Paolo Valerio Vezzoli</h2><h2 class="email"><a href="mailto:mvezzoli@micron.com">mvezzoli@micron.com</a></h2><h2 class="date">2017-10-01 dom 00:00</h2><p class="date">Created: 2017-10-11 mer 17:05</p>
 </section>
-
 <section>
-<section id="slide-org7fe6e2d" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgeee1300" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h2 id="org7fe6e2d"><span class="section-number-2">1</span> Hello World</h2>
+<h2 id="orgeee1300"><span class="section-number-2">1</span> Hello World</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orga0b333f" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgb4acc0d" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orga0b333f"><span class="section-number-3">1.1</span> Simplest Program</h3>
+<h3 id="orgb4acc0d"><span class="section-number-3">1.1</span> Simplest Program</h3>
 <p>
 let's begin with the most easy program
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #94bff3;">main</span> <span style="color: #dc8cc3;">=</span> div [] [text <span style="color: #fa6a6e;">"Hello World"</span>]
+<pre  class="src src-elm"><span style="color: #fce94f;">main</span> <span style="color: #e090d7;">=</span> div [] [text <span style="color: #e9b96e;">"Hello World"</span>]
 </pre>
 </div>
 <p>
@@ -62,15 +61,15 @@ The formatter nicely integrates all programmer' editors (no notepad)
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org9f0fb02" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org27cc83c" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="org9f0fb02"><span class="section-number-4">1.1.1</span> Import and Export</h4>
+<h4 id="org27cc83c"><span class="section-number-4">1.1.1</span> Import and Export</h4>
 <p>
 It also added a new line with the module declaration: we change it a little
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">module</span> <span style="color: #e81eda;">Hello</span> <span style="color: #30a5f5; font-weight: bold;">exposing</span> (<span style="color: #dc8cc3;">..</span>)
+<pre  class="src src-elm"><span style="color: #b4fa70;">module</span> <span style="color: #8cc4ff;">Hello</span> <span style="color: #b4fa70;">exposing</span> (<span style="color: #e090d7;">..</span>)
 </pre>
 </div>
 <p>
@@ -78,17 +77,17 @@ now let's add some import that define the html functions
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">import</span> <span style="color: #e81eda;">Html</span> <span style="color: #30a5f5; font-weight: bold;">exposing</span> (div<span style="color: #dc8cc3;">,</span> text<span style="color: #dc8cc3;">,</span> h1)
+<pre  class="src src-elm"><span style="color: #b4fa70;">import</span> <span style="color: #8cc4ff;">Html</span> <span style="color: #b4fa70;">exposing</span> (div<span style="color: #e090d7;">,</span> text<span style="color: #e090d7;">,</span> h1)
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orga61d17d" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org39070eb" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orga61d17d"><span class="section-number-3">1.2</span> Install Packages</h3>
+<h3 id="org39070eb"><span class="section-number-3">1.2</span> Install Packages</h3>
 <p>
 Before compiling we need to install some packages: you can find a
-complete list at <a href="http://package.elm-lang.org/">http://package.elm-lang.org/</a>
+complete list at <a href="http://package.elm-lang.org">http://package.elm-lang.org</a>
 </p>
 <div class="org-src-container">
 
@@ -105,9 +104,9 @@ a directory <code>elm-stuff</code> where all packages will be downloaded
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org71dd41e" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org61396f7" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="org71dd41e"><span class="section-number-3">1.3</span> Compile</h3>
+<h3 id="org61396f7"><span class="section-number-3">1.3</span> Compile</h3>
 <p>
 To compile the package we can use
 </p>
@@ -121,9 +120,9 @@ this will create an html file with the compiled program
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgb1895e8" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgef4a922" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orgb1895e8"><span class="section-number-3">1.4</span> Add Types</h3>
+<h3 id="orgef4a922"><span class="section-number-3">1.4</span> Add Types</h3>
 <p>
 We can add some warning to the compiler
 </p>
@@ -138,7 +137,7 @@ declaration like this
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #94bff3;">main</span> <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">Html</span><span style="color: #dc8cc3;">.</span><span style="color: #e81eda;">Html</span> <span style="color: #e81eda;">Never</span>
+<pre  class="src src-elm"><span style="color: #fce94f;">main</span> <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Html</span><span style="color: #e090d7;">.</span><span style="color: #8cc4ff;">Html</span> <span style="color: #8cc4ff;">Never</span>
 </pre>
 </div>
 <p>
@@ -150,16 +149,16 @@ Never is a type with no values: this means that our HTML is not dynamic
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgca92554" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org3eb5331" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orgca92554"><span class="section-number-3">1.5</span> Generate Json Lib</h3>
+<h3 id="org3eb5331"><span class="section-number-3">1.5</span> Generate Json Lib</h3>
 <p>
 We can also generate a json library which can help us integrating with
 other HTML
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #94bff3;">elm</span><span style="color: #dc8cc3;">-</span>make <span style="color: #3cb370;">--warn Hello.elm --output main.js</span>
+<pre  class="src src-elm"><span style="color: #fce94f;">elm</span><span style="color: #e090d7;">-</span>make <span style="color: #73d216;">--warn Hello.elm --output main.js</span>
 </pre>
 </div>
 <p>
@@ -167,22 +166,22 @@ we just need to add this in the body
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-html">&lt;<span style="color: #94bff3;">body</span>&gt;
-  &lt;<span style="color: #94bff3;">H1</span>&gt;This is the external HTML&lt;<span style="color: #94bff3;">H1</span>&gt;
-  &lt;<span style="color: #94bff3;">script</span> <span style="color: #abab3a;">type</span>=<span style="color: #fa6a6e;">"text/javascript"</span> <span style="color: #abab3a;">src</span>=<span style="color: #fa6a6e;">"main.js"</span>&gt;&lt;/<span style="color: #94bff3;">script</span>&gt;
-  &lt;<span style="color: #94bff3;">div</span> <span style="color: #abab3a;">id</span>=<span style="color: #fa6a6e;">"main"</span>&gt;&lt;/<span style="color: #94bff3;">div</span>&gt;
-  &lt;<span style="color: #94bff3;">script</span> <span style="color: #abab3a;">type</span>=<span style="color: #fa6a6e;">"text/javascript"</span>&gt;
+<pre  class="src src-html">&lt;<span style="color: #fce94f;">body</span>&gt;
+  &lt;<span style="color: #fce94f;">H1</span>&gt;This is the external HTML&lt;<span style="color: #fce94f;">H1</span>&gt;
+  &lt;<span style="color: #fce94f;">script</span> <span style="color: #fcaf3e;">type</span>=<span style="color: #e9b96e;">"text/javascript"</span> <span style="color: #fcaf3e;">src</span>=<span style="color: #e9b96e;">"main.js"</span>&gt;&lt;/<span style="color: #fce94f;">script</span>&gt;
+  &lt;<span style="color: #fce94f;">div</span> <span style="color: #fcaf3e;">id</span>=<span style="color: #e9b96e;">"main"</span>&gt;&lt;/<span style="color: #fce94f;">div</span>&gt;
+  &lt;<span style="color: #fce94f;">script</span> <span style="color: #fcaf3e;">type</span>=<span style="color: #e9b96e;">"text/javascript"</span>&gt;
     var d = document.getElementById('main');
     Elm.Hello.embed(d);
-  &lt;/<span style="color: #94bff3;">script</span>&gt;
-&lt;/<span style="color: #94bff3;">body</span>&gt;
+  &lt;/<span style="color: #fce94f;">script</span>&gt;
+&lt;/<span style="color: #fce94f;">body</span>&gt;
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org5da79e6" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org4e0a726" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="org5da79e6"><span class="section-number-3">1.6</span> Takeaways</h3>
+<h3 id="org4e0a726"><span class="section-number-3">1.6</span> Takeaways</h3>
 <ul>
 <li>Compiler infer types
 <ul>
@@ -206,16 +205,16 @@ exposed signatures change</li>
 </section>
 </section>
 <section>
-<section id="slide-org08e0b8f" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org8cef623" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h2 id="org08e0b8f"><span class="section-number-2">2</span> Simple Form</h2>
+<h2 id="org8cef623"><span class="section-number-2">2</span> Simple Form</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgada5117" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgd132baf" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orgada5117"><span class="section-number-3">2.1</span> Elm Architecture: A Simple Form</h3>
+<h3 id="orgd132baf"><span class="section-number-3">2.1</span> Elm Architecture: A Simple Form</h3>
 <p>
 From version 0.17 of Elm, the previous language has been greatly
 simplified removing the whole "reactive" infrastructure for a less
@@ -228,23 +227,23 @@ an integer value
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgf8f6d9d" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org5069429" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orgf8f6d9d"><span class="section-number-4">2.1.1</span> The Main Function</h4>
+<h4 id="org5069429"><span class="section-number-4">2.1.1</span> The Main Function</h4>
 <p>
 the main function accepts a record containing 4 functions: we will go
 through each one
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #94bff3;">main</span> <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">Program</span> <span style="color: #e81eda;">Never</span> <span style="color: #e81eda;">Model</span> <span style="color: #e81eda;">Msg</span>
-<span style="color: #94bff3;">main</span> <span style="color: #dc8cc3;">=</span>
-    <span style="color: #e81eda;">Html</span><span style="color: #dc8cc3;">.</span>program
-        <span style="color: #30a5f5; font-weight: bold;">{</span> init <span style="color: #dc8cc3;">=</span> init
-        <span style="color: #30a5f5; font-weight: bold;">,</span> subscriptions <span style="color: #dc8cc3;">=</span> subscriptions
-        <span style="color: #30a5f5; font-weight: bold;">,</span> update <span style="color: #dc8cc3;">=</span> update
-        <span style="color: #30a5f5; font-weight: bold;">,</span> view <span style="color: #dc8cc3;">=</span> view
-        <span style="color: #30a5f5; font-weight: bold;">}</span>
+<pre  class="src src-elm"><span style="color: #fce94f;">main</span> <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Program</span> <span style="color: #8cc4ff;">Never</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #8cc4ff;">Msg</span>
+<span style="color: #fce94f;">main</span> <span style="color: #e090d7;">=</span>
+    <span style="color: #8cc4ff;">Html</span><span style="color: #e090d7;">.</span>program
+        <span style="color: #b4fa70;">{</span> init <span style="color: #e090d7;">=</span> init
+        <span style="color: #b4fa70;">,</span> subscriptions <span style="color: #e090d7;">=</span> subscriptions
+        <span style="color: #b4fa70;">,</span> update <span style="color: #e090d7;">=</span> update
+        <span style="color: #b4fa70;">,</span> view <span style="color: #e090d7;">=</span> view
+        <span style="color: #b4fa70;">}</span>
 </pre>
 </div>
 <p>
@@ -253,15 +252,15 @@ inner state of type <code>Model</code> which is modified by event of type <code>
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgc1747eb" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgaab680b" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orgc1747eb"><span class="section-number-4">2.1.2</span> The Model</h4>
+<h4 id="orgaab680b"><span class="section-number-4">2.1.2</span> The Model</h4>
 <p>
 this type represents the state of the application
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">type</span> <span style="color: #30a5f5; font-weight: bold;">alias</span> <span style="color: #e81eda;">Model</span> <span style="color: #dc8cc3;">=</span> <span style="color: #e81eda;">Int</span>
+<pre  class="src src-elm"><span style="color: #b4fa70;">type</span> <span style="color: #b4fa70;">alias</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">=</span> <span style="color: #8cc4ff;">Int</span>
 </pre>
 </div>
 <p>
@@ -273,16 +272,16 @@ We start simple this time, but we will refactor later
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgb1f6d22" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org54fb31d" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orgb1f6d22"><span class="section-number-4">2.1.3</span> The Init</h4>
+<h4 id="org54fb31d"><span class="section-number-4">2.1.3</span> The Init</h4>
 <p>
 we need to set up the initial state at the beginning of the application
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #94bff3;">init</span> <span style="color: #dc8cc3;">:</span> ( <span style="color: #e81eda;">Model</span><span style="color: #dc8cc3;">,</span> <span style="color: #e81eda;">Cmd</span> <span style="color: #e81eda;">Msg</span> )
-<span style="color: #94bff3;">init</span> <span style="color: #dc8cc3;">=</span> ( 0<span style="color: #dc8cc3;">,</span> <span style="color: #e81eda;">Cmd</span><span style="color: #dc8cc3;">.</span>none )
+<pre  class="src src-elm"><span style="color: #fce94f;">init</span> <span style="color: #e090d7;">:</span> ( <span style="color: #8cc4ff;">Model</span><span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span> <span style="color: #8cc4ff;">Msg</span> )
+<span style="color: #fce94f;">init</span> <span style="color: #e090d7;">=</span> ( 0<span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>none )
 </pre>
 </div>
 <p>
@@ -299,16 +298,16 @@ Cmd is a PARAMETRIC type which accepts another type as parameter
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgc0c143e" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org4f93941" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orgc0c143e"><span class="section-number-4">2.1.4</span> Messages</h4>
+<h4 id="org4f93941"><span class="section-number-4">2.1.4</span> Messages</h4>
 <p>
 this data type should represent the asynchronous signals coming from
 the application
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">type</span> <span style="color: #e81eda;">Msg</span> <span style="color: #dc8cc3;">=</span> <span style="color: #e81eda;">Increment</span> <span style="color: #dc8cc3;">|</span> <span style="color: #e81eda;">Decrement</span>
+<pre  class="src src-elm"><span style="color: #b4fa70;">type</span> <span style="color: #8cc4ff;">Msg</span> <span style="color: #e090d7;">=</span> <span style="color: #8cc4ff;">Increment</span> <span style="color: #e090d7;">|</span> <span style="color: #8cc4ff;">Decrement</span>
 </pre>
 </div>
 <p>
@@ -316,23 +315,23 @@ this is called a UNION type; in this case it has exactly 2 values
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org47362e9" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orga1b9d22" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="org47362e9"><span class="section-number-4">2.1.5</span> Update</h4>
+<h4 id="orga1b9d22"><span class="section-number-4">2.1.5</span> Update</h4>
 <p>
 this function will change the state of the application according to
 signals
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #94bff3;">update</span> <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">Msg</span> <span style="color: #dc8cc3;">-&gt;</span> <span style="color: #e81eda;">Model</span> <span style="color: #dc8cc3;">-&gt;</span> ( <span style="color: #e81eda;">Model</span><span style="color: #dc8cc3;">,</span> <span style="color: #e81eda;">Cmd</span> <span style="color: #e81eda;">Msg</span> )
-<span style="color: #94bff3;">update</span> message model <span style="color: #dc8cc3;">=</span> 
-    <span style="color: #30a5f5; font-weight: bold;">case</span> message <span style="color: #30a5f5; font-weight: bold;">of</span>
-        <span style="color: #e81eda;">Increase</span> <span style="color: #dc8cc3;">-&gt;</span>
-            ( model <span style="color: #dc8cc3;">+</span> 1<span style="color: #dc8cc3;">,</span> <span style="color: #e81eda;">Cmd</span><span style="color: #dc8cc3;">.</span>none )
+<pre  class="src src-elm"><span style="color: #fce94f;">update</span> <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Msg</span> <span style="color: #e090d7;">-&gt;</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">-&gt;</span> ( <span style="color: #8cc4ff;">Model</span><span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span> <span style="color: #8cc4ff;">Msg</span> )
+<span style="color: #fce94f;">update</span> message model <span style="color: #e090d7;">=</span> 
+    <span style="color: #b4fa70;">case</span> message <span style="color: #b4fa70;">of</span>
+        <span style="color: #8cc4ff;">Increase</span> <span style="color: #e090d7;">-&gt;</span>
+            ( model <span style="color: #e090d7;">+</span> 1<span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>none )
 
-        <span style="color: #e81eda;">Decrease</span> <span style="color: #dc8cc3;">-&gt;</span>
-            ( model <span style="color: #dc8cc3;">-</span> 1<span style="color: #dc8cc3;">,</span> <span style="color: #e81eda;">Cmd</span><span style="color: #dc8cc3;">.</span>none )
+        <span style="color: #8cc4ff;">Decrease</span> <span style="color: #e090d7;">-&gt;</span>
+            ( model <span style="color: #e090d7;">-</span> 1<span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>none )
 </pre>
 </div>
 <p>
@@ -342,44 +341,44 @@ command (or "effect")
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org7184021" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org15082cd" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="org7184021"><span class="section-number-4">2.1.6</span> View</h4>
+<h4 id="org15082cd"><span class="section-number-4">2.1.6</span> View</h4>
 <p>
 this function shows the page starting from the model
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #94bff3;">view</span> <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">Model</span> <span style="color: #dc8cc3;">-&gt;</span> <span style="color: #e81eda;">Html</span> <span style="color: #e81eda;">Msg</span>
-<span style="color: #94bff3;">view</span> model <span style="color: #dc8cc3;">=</span>
+<pre  class="src src-elm"><span style="color: #fce94f;">view</span> <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">-&gt;</span> <span style="color: #8cc4ff;">Html</span> <span style="color: #8cc4ff;">Msg</span>
+<span style="color: #fce94f;">view</span> model <span style="color: #e090d7;">=</span>
     div []
-        <span style="color: #30a5f5; font-weight: bold;">[</span> button [ onClick <span style="color: #e81eda;">Increase</span> ] [ text <span style="color: #fa6a6e;">"Add 1"</span> ]
-        <span style="color: #30a5f5; font-weight: bold;">,</span> div [] [ text <span style="color: #dc8cc3;">&lt;|</span> <span style="color: #fa6a6e;">"Buy "</span> <span style="color: #dc8cc3;">++</span> (toString model) <span style="color: #dc8cc3;">++</span> <span style="color: #fa6a6e;">" bananas"</span> ]
-        <span style="color: #30a5f5; font-weight: bold;">,</span> button [ onClick <span style="color: #e81eda;">Decrease</span> ] [ text <span style="color: #fa6a6e;">"Remove 1"</span> ]
-        <span style="color: #30a5f5; font-weight: bold;">]</span>
+        <span style="color: #b4fa70;">[</span> button [ onClick <span style="color: #8cc4ff;">Increase</span> ] [ text <span style="color: #e9b96e;">"Add 1"</span> ]
+        <span style="color: #b4fa70;">,</span> div [] [ text <span style="color: #e090d7;">&lt;|</span> <span style="color: #e9b96e;">"Buy "</span> <span style="color: #e090d7;">++</span> (toString model) <span style="color: #e090d7;">++</span> <span style="color: #e9b96e;">" bananas"</span> ]
+        <span style="color: #b4fa70;">,</span> button [ onClick <span style="color: #8cc4ff;">Decrease</span> ] [ text <span style="color: #e9b96e;">"Remove 1"</span> ]
+        <span style="color: #b4fa70;">]</span>
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orge7bfeff" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org92e01a9" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orge7bfeff"><span class="section-number-4">2.1.7</span> update Index.html</h4>
+<h4 id="org92e01a9"><span class="section-number-4">2.1.7</span> update Index.html</h4>
 <p>
 a little change is needed in the html call to find the module
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-html">&lt;<span style="color: #94bff3;">script</span> <span style="color: #abab3a;">type</span>=<span style="color: #fa6a6e;">"text/javascript"</span>&gt;
+<pre  class="src src-html">&lt;<span style="color: #fce94f;">script</span> <span style="color: #fcaf3e;">type</span>=<span style="color: #e9b96e;">"text/javascript"</span>&gt;
   var d = document.getElementById('main');
   Elm.Form.embed(d);
-&lt;/<span style="color: #94bff3;">script</span>&gt;
+&lt;/<span style="color: #fce94f;">script</span>&gt;
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org3a83400" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgd5f5b1c" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="org3a83400"><span class="section-number-3">2.2</span> Extending The Form</h3>
+<h3 id="orgd5f5b1c"><span class="section-number-3">2.2</span> Extending The Form</h3>
 <p>
 we will now add to the view a password field and its confirmation; we
 want to be able to signal to the users the quality of the password
@@ -387,44 +386,44 @@ want to be able to signal to the users the quality of the password
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgdd86ebe" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org0ebdfbc" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orgdd86ebe"><span class="section-number-4">2.2.1</span> Adding more Widgets</h4>
+<h4 id="org0ebdfbc"><span class="section-number-4">2.2.1</span> Adding more Widgets</h4>
 <p>
 First we add the password fields in the view and add an event to detect change
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #94bff3;">div</span>  []
-  <span style="color: #30a5f5; font-weight: bold;">[</span> div []
-      <span style="color: #30a5f5; font-weight: bold;">[</span> label [ for <span style="color: #fa6a6e;">"pass1"</span> ] [ text <span style="color: #fa6a6e;">"type your password"</span> ]
-      <span style="color: #30a5f5; font-weight: bold;">,</span> input <span style="color: #30a5f5; font-weight: bold;">[</span> id <span style="color: #fa6a6e;">"pass1"</span>
-          <span style="color: #30a5f5; font-weight: bold;">,</span> onInput <span style="color: #e81eda;">UpdatePass1</span>
-          <span style="color: #30a5f5; font-weight: bold;">,</span> type_ <span style="color: #fa6a6e;">"password"</span>
-          <span style="color: #30a5f5; font-weight: bold;">,</span> value model<span style="color: #dc8cc3;">.</span>pass1
-          <span style="color: #30a5f5; font-weight: bold;">]</span>
+<pre  class="src src-elm"><span style="color: #fce94f;">div</span>  []
+  <span style="color: #b4fa70;">[</span> div []
+      <span style="color: #b4fa70;">[</span> label [ for <span style="color: #e9b96e;">"pass1"</span> ] [ text <span style="color: #e9b96e;">"type your password"</span> ]
+      <span style="color: #b4fa70;">,</span> input <span style="color: #b4fa70;">[</span> id <span style="color: #e9b96e;">"pass1"</span>
+          <span style="color: #b4fa70;">,</span> onInput <span style="color: #8cc4ff;">UpdatePass1</span>
+          <span style="color: #b4fa70;">,</span> type_ <span style="color: #e9b96e;">"password"</span>
+          <span style="color: #b4fa70;">,</span> value model<span style="color: #e090d7;">.</span>pass1
+          <span style="color: #b4fa70;">]</span>
           []
-      <span style="color: #30a5f5; font-weight: bold;">]</span>
-  <span style="color: #30a5f5; font-weight: bold;">,</span> <span style="color: #3cb370;">-- some thing for pass2</span>
-  <span style="color: #30a5f5; font-weight: bold;">]</span>
+      <span style="color: #b4fa70;">]</span>
+  <span style="color: #b4fa70;">,</span> <span style="color: #73d216;">-- some thing for pass2</span>
+  <span style="color: #b4fa70;">]</span>
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org005f934" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org3fc9991" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="org005f934"><span class="section-number-4">2.2.2</span> Adding more Messages</h4>
+<h4 id="org3fc9991"><span class="section-number-4">2.2.2</span> Adding more Messages</h4>
 <p>
 the two messages are added to the union type to take into account each
 chenge in the textfields
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">type</span> <span style="color: #e81eda;">Msg</span>
-    <span style="color: #dc8cc3;">=</span> <span style="color: #e81eda;">Increase</span>
-    <span style="color: #dc8cc3;">|</span> <span style="color: #e81eda;">Decrease</span>
-    <span style="color: #dc8cc3;">|</span> <span style="color: #e81eda;">UpdatePass1</span> <span style="color: #e81eda;">String</span>
-    <span style="color: #dc8cc3;">|</span> <span style="color: #e81eda;">UpdatePass2</span> <span style="color: #e81eda;">String</span>
+<pre  class="src src-elm"><span style="color: #b4fa70;">type</span> <span style="color: #8cc4ff;">Msg</span>
+    <span style="color: #e090d7;">=</span> <span style="color: #8cc4ff;">Increase</span>
+    <span style="color: #e090d7;">|</span> <span style="color: #8cc4ff;">Decrease</span>
+    <span style="color: #e090d7;">|</span> <span style="color: #8cc4ff;">UpdatePass1</span> <span style="color: #8cc4ff;">String</span>
+    <span style="color: #e090d7;">|</span> <span style="color: #8cc4ff;">UpdatePass2</span> <span style="color: #8cc4ff;">String</span>
 </pre>
 </div>
 <p>
@@ -432,36 +431,36 @@ the new messages now carry a value of type string
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org36eacd9" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgce4c25b" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="org36eacd9"><span class="section-number-4">2.2.3</span> Extending the State</h4>
+<h4 id="orgce4c25b"><span class="section-number-4">2.2.3</span> Extending the State</h4>
 <p>
 In order to store the new information we tranform the state into a
 record
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">type</span> <span style="color: #30a5f5; font-weight: bold;">alias</span> <span style="color: #e81eda;">Model</span> <span style="color: #dc8cc3;">=</span>
-    <span style="color: #30a5f5; font-weight: bold;">{</span> counter <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">Int</span>
-    <span style="color: #30a5f5; font-weight: bold;">,</span> pass1 <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">String</span>
-    <span style="color: #30a5f5; font-weight: bold;">,</span> pass2 <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">String</span>
-    <span style="color: #30a5f5; font-weight: bold;">}</span>
+<pre  class="src src-elm"><span style="color: #b4fa70;">type</span> <span style="color: #b4fa70;">alias</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">=</span>
+    <span style="color: #b4fa70;">{</span> counter <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Int</span>
+    <span style="color: #b4fa70;">,</span> pass1 <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">String</span>
+    <span style="color: #b4fa70;">,</span> pass2 <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">String</span>
+    <span style="color: #b4fa70;">}</span>
 
-<span style="color: #94bff3;">init</span> <span style="color: #dc8cc3;">:</span> ( <span style="color: #e81eda;">Model</span><span style="color: #dc8cc3;">,</span> <span style="color: #e81eda;">Cmd</span> <span style="color: #e81eda;">Msg</span> )
-<span style="color: #94bff3;">init</span> <span style="color: #dc8cc3;">=</span>
-    ( <span style="color: #30a5f5; font-weight: bold;">{</span> counter <span style="color: #dc8cc3;">=</span> 1
-      <span style="color: #30a5f5; font-weight: bold;">,</span> pass1 <span style="color: #dc8cc3;">=</span> <span style="color: #fa6a6e;">""</span>
-      <span style="color: #30a5f5; font-weight: bold;">,</span> pass2 <span style="color: #dc8cc3;">=</span> <span style="color: #fa6a6e;">""</span>
-      <span style="color: #30a5f5; font-weight: bold;">}</span>
-    <span style="color: #30a5f5; font-weight: bold;">,</span> <span style="color: #e81eda;">Cmd</span><span style="color: #dc8cc3;">.</span>none
+<span style="color: #fce94f;">init</span> <span style="color: #e090d7;">:</span> ( <span style="color: #8cc4ff;">Model</span><span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span> <span style="color: #8cc4ff;">Msg</span> )
+<span style="color: #fce94f;">init</span> <span style="color: #e090d7;">=</span>
+    ( <span style="color: #b4fa70;">{</span> counter <span style="color: #e090d7;">=</span> 1
+      <span style="color: #b4fa70;">,</span> pass1 <span style="color: #e090d7;">=</span> <span style="color: #e9b96e;">""</span>
+      <span style="color: #b4fa70;">,</span> pass2 <span style="color: #e090d7;">=</span> <span style="color: #e9b96e;">""</span>
+      <span style="color: #b4fa70;">}</span>
+    <span style="color: #b4fa70;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>none
     )
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgecda0e2" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgafd484f" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orgecda0e2"><span class="section-number-4">2.2.4</span> Extending the Update</h4>
+<h4 id="orgafd484f"><span class="section-number-4">2.2.4</span> Extending the Update</h4>
 <p>
 If we try to compile it now we get an error about the case switch not
 to be complete; we can add two cases; this demosntrates also type
@@ -469,37 +468,37 @@ matching and decomposition
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #e81eda;">UpdatePass1</span> value <span style="color: #dc8cc3;">-&gt;</span>
-        ( <span style="color: #30a5f5; font-weight: bold;">{</span> model
-            <span style="color: #dc8cc3;">|</span> pass1 <span style="color: #dc8cc3;">=</span> value
-          <span style="color: #30a5f5; font-weight: bold;">}</span>
-        <span style="color: #30a5f5; font-weight: bold;">,</span> <span style="color: #e81eda;">Cmd</span><span style="color: #dc8cc3;">.</span>none
+<pre  class="src src-elm"><span style="color: #8cc4ff;">UpdatePass1</span> value <span style="color: #e090d7;">-&gt;</span>
+        ( <span style="color: #b4fa70;">{</span> model
+            <span style="color: #e090d7;">|</span> pass1 <span style="color: #e090d7;">=</span> value
+          <span style="color: #b4fa70;">}</span>
+        <span style="color: #b4fa70;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>none
         )
 
-<span style="color: #e81eda;">UpdatePass2</span> value <span style="color: #dc8cc3;">-&gt;</span>
-        ( <span style="color: #30a5f5; font-weight: bold;">{</span> model
-            <span style="color: #dc8cc3;">|</span> pass2 <span style="color: #dc8cc3;">=</span> value
-          <span style="color: #30a5f5; font-weight: bold;">}</span>
-        <span style="color: #30a5f5; font-weight: bold;">,</span> <span style="color: #e81eda;">Cmd</span><span style="color: #dc8cc3;">.</span>none
+<span style="color: #8cc4ff;">UpdatePass2</span> value <span style="color: #e090d7;">-&gt;</span>
+        ( <span style="color: #b4fa70;">{</span> model
+            <span style="color: #e090d7;">|</span> pass2 <span style="color: #e090d7;">=</span> value
+          <span style="color: #b4fa70;">}</span>
+        <span style="color: #b4fa70;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>none
         )
 
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org6cda126" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org70225d0" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="org6cda126"><span class="section-number-4">2.2.5</span> Adding Password Matching and Security: the Model</h4>
+<h4 id="org70225d0"><span class="section-number-4">2.2.5</span> Adding Password Matching and Security: the Model</h4>
 <p>
 We want to feedback the user about the level of security; we can
 capture this in a type
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">type</span> <span style="color: #e81eda;">PassSecurity</span>
-    <span style="color: #dc8cc3;">=</span> <span style="color: #e81eda;">Weak</span>
-    <span style="color: #dc8cc3;">|</span> <span style="color: #e81eda;">Minimal</span>
-    <span style="color: #dc8cc3;">|</span> <span style="color: #e81eda;">Good</span>
+<pre  class="src src-elm"><span style="color: #b4fa70;">type</span> <span style="color: #8cc4ff;">PassSecurity</span>
+    <span style="color: #e090d7;">=</span> <span style="color: #8cc4ff;">Weak</span>
+    <span style="color: #e090d7;">|</span> <span style="color: #8cc4ff;">Minimal</span>
+    <span style="color: #e090d7;">|</span> <span style="color: #8cc4ff;">Good</span>
 </pre>
 </div>
 <p>
@@ -507,133 +506,133 @@ and put into our model
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">type</span> <span style="color: #30a5f5; font-weight: bold;">alias</span> <span style="color: #e81eda;">Model</span> <span style="color: #dc8cc3;">=</span>
-    <span style="color: #30a5f5; font-weight: bold;">{</span> counter <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">Int</span>
-    <span style="color: #30a5f5; font-weight: bold;">,</span> pass1 <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">String</span>
-    <span style="color: #30a5f5; font-weight: bold;">,</span> pass2 <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">String</span>
-    <span style="color: #30a5f5; font-weight: bold;">,</span> passMatching <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">Bool</span>
-    <span style="color: #30a5f5; font-weight: bold;">,</span> passSecurity <span style="color: #dc8cc3;">:</span> <span style="color: #e81eda;">PassSecurity</span>
-    <span style="color: #30a5f5; font-weight: bold;">}</span>
+<pre  class="src src-elm"><span style="color: #b4fa70;">type</span> <span style="color: #b4fa70;">alias</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">=</span>
+    <span style="color: #b4fa70;">{</span> counter <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Int</span>
+    <span style="color: #b4fa70;">,</span> pass1 <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">String</span>
+    <span style="color: #b4fa70;">,</span> pass2 <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">String</span>
+    <span style="color: #b4fa70;">,</span> passMatching <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Bool</span>
+    <span style="color: #b4fa70;">,</span> passSecurity <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">PassSecurity</span>
+    <span style="color: #b4fa70;">}</span>
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orge668d17" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgd7eed44" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orge668d17"><span class="section-number-4">2.2.6</span> Extending the code setup</h4>
+<h4 id="orgd7eed44"><span class="section-number-4">2.2.6</span> Extending the code setup</h4>
 <p>
 in our init code we add initial values
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">,</span> pass2 <span style="color: #dc8cc3;">=</span> <span style="color: #fa6a6e;">""</span>
-<span style="color: #30a5f5; font-weight: bold;">,</span> passMatching <span style="color: #dc8cc3;">=</span> <span style="color: #e81eda;">False</span>
-<span style="color: #30a5f5; font-weight: bold;">,</span> passSecurity <span style="color: #dc8cc3;">=</span> <span style="color: #e81eda;">Weak</span>
-<span style="color: #30a5f5; font-weight: bold;">}</span>
+<pre  class="src src-elm"><span style="color: #b4fa70;">,</span> pass2 <span style="color: #e090d7;">=</span> <span style="color: #e9b96e;">""</span>
+<span style="color: #b4fa70;">,</span> passMatching <span style="color: #e090d7;">=</span> <span style="color: #8cc4ff;">False</span>
+<span style="color: #b4fa70;">,</span> passSecurity <span style="color: #e090d7;">=</span> <span style="color: #8cc4ff;">Weak</span>
+<span style="color: #b4fa70;">}</span>
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgc80bce9" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgb9b68ad" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orgc80bce9"><span class="section-number-4">2.2.7</span> Completing the view : security level</h4>
+<h4 id="orgb9b68ad"><span class="section-number-4">2.2.7</span> Completing the view : security level</h4>
 <p>
-now we can show the value of the security
+now we can show the value
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">,</span> div []
-    <span style="color: #30a5f5; font-weight: bold;">[</span> label [ for <span style="color: #fa6a6e;">"pass1"</span> ] [ text <span style="color: #fa6a6e;">"type your password"</span> ]
-    <span style="color: #30a5f5; font-weight: bold;">,</span> input
-        <span style="color: #30a5f5; font-weight: bold;">[</span> id <span style="color: #fa6a6e;">"pass1"</span>
-        <span style="color: #30a5f5; font-weight: bold;">,</span> onInput <span style="color: #e81eda;">UpdatePass1</span>
-        <span style="color: #30a5f5; font-weight: bold;">,</span> type_ <span style="color: #fa6a6e;">"password"</span>
-        <span style="color: #30a5f5; font-weight: bold;">,</span> value model<span style="color: #dc8cc3;">.</span>pass1
-        <span style="color: #30a5f5; font-weight: bold;">]</span>
+<pre  class="src src-elm"><span style="color: #b4fa70;">,</span> div []
+    <span style="color: #b4fa70;">[</span> label [ for <span style="color: #e9b96e;">"pass1"</span> ] [ text <span style="color: #e9b96e;">"type your password"</span> ]
+    <span style="color: #b4fa70;">,</span> input
+        <span style="color: #b4fa70;">[</span> id <span style="color: #e9b96e;">"pass1"</span>
+        <span style="color: #b4fa70;">,</span> onInput <span style="color: #8cc4ff;">UpdatePass1</span>
+        <span style="color: #b4fa70;">,</span> type_ <span style="color: #e9b96e;">"password"</span>
+        <span style="color: #b4fa70;">,</span> value model<span style="color: #e090d7;">.</span>pass1
+        <span style="color: #b4fa70;">]</span>
         []
-    <span style="color: #30a5f5; font-weight: bold;">,</span> text <span style="color: #dc8cc3;">&lt;|</span> <span style="color: #fa6a6e;">"Security "</span> <span style="color: #dc8cc3;">++</span> (toString model<span style="color: #dc8cc3;">.</span>passSecurity)
-    <span style="color: #30a5f5; font-weight: bold;">]</span>
-<span style="color: #30a5f5; font-weight: bold;">,</span> hr [] []
+    <span style="color: #b4fa70;">,</span> text <span style="color: #e090d7;">&lt;|</span> <span style="color: #e9b96e;">"Security "</span> <span style="color: #e090d7;">++</span> (toString model<span style="color: #e090d7;">.</span>passSecurity)
+    <span style="color: #b4fa70;">]</span>
+<span style="color: #b4fa70;">,</span> hr [] []
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orge69e116" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org15f2e92" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orge69e116"><span class="section-number-4">2.2.8</span> Completing the view: password matching</h4>
+<h4 id="org15f2e92"><span class="section-number-4">2.2.8</span> Completing the view: password matching</h4>
 <p>
 we also show a colored status for pattern matching
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #30a5f5; font-weight: bold;">,</span> div []
-    <span style="color: #30a5f5; font-weight: bold;">[</span> label [ for <span style="color: #fa6a6e;">"pass2"</span> ] [ text <span style="color: #fa6a6e;">"retype your password"</span> ]
-    <span style="color: #30a5f5; font-weight: bold;">,</span> input
-        <span style="color: #30a5f5; font-weight: bold;">[</span> id <span style="color: #fa6a6e;">"pass2"</span>
-        <span style="color: #30a5f5; font-weight: bold;">,</span> onInput <span style="color: #e81eda;">UpdatePass2</span>
-        <span style="color: #30a5f5; font-weight: bold;">,</span> type_ <span style="color: #fa6a6e;">"password"</span>
-        <span style="color: #30a5f5; font-weight: bold;">,</span> value model<span style="color: #dc8cc3;">.</span>pass2
-        <span style="color: #30a5f5; font-weight: bold;">]</span>
+<pre  class="src src-elm"><span style="color: #b4fa70;">,</span> div []
+    <span style="color: #b4fa70;">[</span> label [ for <span style="color: #e9b96e;">"pass2"</span> ] [ text <span style="color: #e9b96e;">"retype your password"</span> ]
+    <span style="color: #b4fa70;">,</span> input
+        <span style="color: #b4fa70;">[</span> id <span style="color: #e9b96e;">"pass2"</span>
+        <span style="color: #b4fa70;">,</span> onInput <span style="color: #8cc4ff;">UpdatePass2</span>
+        <span style="color: #b4fa70;">,</span> type_ <span style="color: #e9b96e;">"password"</span>
+        <span style="color: #b4fa70;">,</span> value model<span style="color: #e090d7;">.</span>pass2
+        <span style="color: #b4fa70;">]</span>
         []
-    <span style="color: #30a5f5; font-weight: bold;">,</span> <span style="color: #30a5f5; font-weight: bold;">let</span>
-        ( message<span style="color: #dc8cc3;">,</span> color ) <span style="color: #dc8cc3;">=</span>
-            <span style="color: #30a5f5; font-weight: bold;">if</span> model<span style="color: #dc8cc3;">.</span>passMatching <span style="color: #30a5f5; font-weight: bold;">then</span>
-                ( <span style="color: #fa6a6e;">"Matching"</span><span style="color: #dc8cc3;">,</span> <span style="color: #fa6a6e;">"green"</span> )
-            <span style="color: #30a5f5; font-weight: bold;">else</span>
-                ( <span style="color: #fa6a6e;">"Not Matching"</span><span style="color: #dc8cc3;">,</span> <span style="color: #fa6a6e;">"red"</span> )
-      <span style="color: #30a5f5; font-weight: bold;">in</span>
-        div [ style [ ( <span style="color: #fa6a6e;">"color"</span><span style="color: #dc8cc3;">,</span> color ) ] ] [ text message ]
-    <span style="color: #30a5f5; font-weight: bold;">]</span>
+    <span style="color: #b4fa70;">,</span> <span style="color: #b4fa70;">let</span>
+        ( message<span style="color: #e090d7;">,</span> color ) <span style="color: #e090d7;">=</span>
+            <span style="color: #b4fa70;">if</span> model<span style="color: #e090d7;">.</span>passMatching <span style="color: #b4fa70;">then</span>
+                ( <span style="color: #e9b96e;">"Matching"</span><span style="color: #e090d7;">,</span> <span style="color: #e9b96e;">"green"</span> )
+            <span style="color: #b4fa70;">else</span>
+                ( <span style="color: #e9b96e;">"Not Matching"</span><span style="color: #e090d7;">,</span> <span style="color: #e9b96e;">"red"</span> )
+      <span style="color: #b4fa70;">in</span>
+        div [ style [ ( <span style="color: #e9b96e;">"color"</span><span style="color: #e090d7;">,</span> color ) ] ] [ text message ]
+    <span style="color: #b4fa70;">]</span>
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orge42ba78" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org4ad1acf" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orge42ba78"><span class="section-number-4">2.2.9</span> Completing the update: security logic</h4>
+<h4 id="org4ad1acf"><span class="section-number-4">2.2.9</span> Completing the update: security logic</h4>
 <p>
 as an example we may decide that security is given by length alone
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #e81eda;">UpdatePass1</span> value <span style="color: #dc8cc3;">-&gt;</span>
-    <span style="color: #30a5f5; font-weight: bold;">let</span>
-        passLength <span style="color: #dc8cc3;">=</span>
-            <span style="color: #e81eda;">String</span><span style="color: #dc8cc3;">.</span>length value
+<pre  class="src src-elm"><span style="color: #8cc4ff;">UpdatePass1</span> value <span style="color: #e090d7;">-&gt;</span>
+    <span style="color: #b4fa70;">let</span>
+        passLength <span style="color: #e090d7;">=</span>
+            <span style="color: #8cc4ff;">String</span><span style="color: #e090d7;">.</span>length value
 
-        security <span style="color: #dc8cc3;">=</span>
-            <span style="color: #30a5f5; font-weight: bold;">if</span> passLength <span style="color: #dc8cc3;">&lt;</span> 4 <span style="color: #30a5f5; font-weight: bold;">then</span>
-                <span style="color: #e81eda;">Weak</span>
-            <span style="color: #30a5f5; font-weight: bold;">else</span>
-                (<span style="color: #30a5f5; font-weight: bold;">if</span> passLength <span style="color: #dc8cc3;">&lt;</span> 6 <span style="color: #30a5f5; font-weight: bold;">then</span>
-                    <span style="color: #e81eda;">Minimal</span>
-                 <span style="color: #30a5f5; font-weight: bold;">else</span>
-                    <span style="color: #e81eda;">Good</span>
+        security <span style="color: #e090d7;">=</span>
+            <span style="color: #b4fa70;">if</span> passLength <span style="color: #e090d7;">&lt;</span> 4 <span style="color: #b4fa70;">then</span>
+                <span style="color: #8cc4ff;">Weak</span>
+            <span style="color: #b4fa70;">else</span>
+                (<span style="color: #b4fa70;">if</span> passLength <span style="color: #e090d7;">&lt;</span> 6 <span style="color: #b4fa70;">then</span>
+                    <span style="color: #8cc4ff;">Minimal</span>
+                 <span style="color: #b4fa70;">else</span>
+                    <span style="color: #8cc4ff;">Good</span>
                 )
-    <span style="color: #30a5f5; font-weight: bold;">in</span>
-        ( { model <span style="color: #dc8cc3;">|</span> pass1 <span style="color: #dc8cc3;">=</span> value<span style="color: #dc8cc3;">,</span> passSecurity <span style="color: #dc8cc3;">=</span> security }<span style="color: #dc8cc3;">,</span> <span style="color: #e81eda;">Cmd</span><span style="color: #dc8cc3;">.</span>none )
+    <span style="color: #b4fa70;">in</span>
+        ( { model <span style="color: #e090d7;">|</span> pass1 <span style="color: #e090d7;">=</span> value<span style="color: #e090d7;">,</span> passSecurity <span style="color: #e090d7;">=</span> security }<span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>none )
 </pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgfac3e6d" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org2a12bff" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orgfac3e6d"><span class="section-number-4">2.2.10</span> Completing the update: password matching</h4>
+<h4 id="org2a12bff"><span class="section-number-4">2.2.10</span> Completing the update: password matching</h4>
 <p>
 We also can add a comparison between passwords
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elm"><span style="color: #e81eda;">UpdatePass2</span> value <span style="color: #dc8cc3;">-&gt;</span>
-    <span style="color: #30a5f5; font-weight: bold;">let</span>
-        match <span style="color: #dc8cc3;">=</span>
-            value <span style="color: #dc8cc3;">==</span> model<span style="color: #dc8cc3;">.</span>pass1
-    <span style="color: #30a5f5; font-weight: bold;">in</span>
-        ( <span style="color: #30a5f5; font-weight: bold;">{</span> model
-            <span style="color: #dc8cc3;">|</span> pass2 <span style="color: #dc8cc3;">=</span> value
-            <span style="color: #30a5f5; font-weight: bold;">,</span> passMatching <span style="color: #dc8cc3;">=</span> match
-          <span style="color: #30a5f5; font-weight: bold;">}</span>
-        <span style="color: #30a5f5; font-weight: bold;">,</span> <span style="color: #e81eda;">Cmd</span><span style="color: #dc8cc3;">.</span>none
+<pre  class="src src-elm"><span style="color: #8cc4ff;">UpdatePass2</span> value <span style="color: #e090d7;">-&gt;</span>
+    <span style="color: #b4fa70;">let</span>
+        match <span style="color: #e090d7;">=</span>
+            value <span style="color: #e090d7;">==</span> model<span style="color: #e090d7;">.</span>pass1
+    <span style="color: #b4fa70;">in</span>
+        ( <span style="color: #b4fa70;">{</span> model
+            <span style="color: #e090d7;">|</span> pass2 <span style="color: #e090d7;">=</span> value
+            <span style="color: #b4fa70;">,</span> passMatching <span style="color: #e090d7;">=</span> match
+          <span style="color: #b4fa70;">}</span>
+        <span style="color: #b4fa70;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>none
         )
 </pre>
 </div>
@@ -642,9 +641,9 @@ this check must be added on the other case in order to make everything correct
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgbf0fbfd" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org4a42ed4" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orgbf0fbfd"><span class="section-number-3">2.3</span> Debugger</h3>
+<h3 id="org4a42ed4"><span class="section-number-3">2.3</span> Debugger</h3>
 <p>
 Elm code does not have a lot of problems that you can meet in common
 javascript; but this is not enough: we want the program to work as it
@@ -657,9 +656,9 @@ to see how the program actually works.
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org062cda4" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org6184555" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="org062cda4"><span class="section-number-4">2.3.1</span> Compiling with debugger option</h4>
+<h4 id="org6184555"><span class="section-number-4">2.3.1</span> Compiling with debugger option</h4>
 <p>
 You can compile the form with the <code>--debug</code> option
 </p>
@@ -678,9 +677,9 @@ In the page now a new control appears which counts every event recorded
 </p>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org44bf45a" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org6a498c8" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="org44bf45a"><span class="section-number-4">2.3.2</span> Time Travelling</h4>
+<h4 id="org6a498c8"><span class="section-number-4">2.3.2</span> Time Travelling</h4>
 <p>
 through the debugging interface it is possible to:
 </p>
@@ -692,9 +691,9 @@ reproduce each step</li>
 </ul>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org7659370" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org635b888" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="org7659370"><span class="section-number-3">2.4</span> Takeaways</h3>
+<h3 id="org635b888"><span class="section-number-3">2.4</span> Takeaways</h3>
 <ul>
 <li>The Type System support refactoring</li>
 <li>The Purity support debug</li>
@@ -704,63 +703,199 @@ reproduce each step</li>
 </section>
 </section>
 <section>
-<section id="slide-orgb11a2c1" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgf08f800" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h2 id="orgb11a2c1"><span class="section-number-2">3</span> Clock</h2>
+<h2 id="orgf08f800"><span class="section-number-2">3</span> Clock</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgb69a08d" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org918e7bc" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orgb69a08d"><span class="section-number-3">3.1</span> Elm Architecture (Again): Getting The Time</h3>
-<div class="outline-text-3" id="text-3-1">
+<h3 id="org918e7bc"><span class="section-number-3">3.1</span> Elm Architecture (Again): Getting The Time</h3>
+<p>
+In this example we are creating a simple clock in elm
+</p>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org3c6e4ae" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
+<h4 id="org3c6e4ae"><span class="section-number-4">3.1.1</span> Subscriptions and messages</h4>
+<p>
+Elm handles those asynchronous events which are not related to the UI
+with subscriptions
+</p>
+
+<p>
+A typical example would be server answers to http request; getting the
+time is another.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #b4fa70;">type</span> <span style="color: #8cc4ff;">Msg</span> <span style="color: #e090d7;">=</span> <span style="color: #8cc4ff;">Tick</span> <span style="color: #8cc4ff;">Time</span>
+
+<span style="color: #fce94f;">subscriptions</span> <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">-&gt;</span> <span style="color: #8cc4ff;">Sub</span> <span style="color: #8cc4ff;">Msg</span>
+<span style="color: #fce94f;">subscriptions</span> model <span style="color: #e090d7;">=</span>
+    <span style="color: #8cc4ff;">Time</span><span style="color: #e090d7;">.</span>every (1 <span style="color: #e090d7;">*</span> <span style="color: #8cc4ff;">Time</span><span style="color: #e090d7;">.</span>second) <span style="color: #8cc4ff;">Tick</span>
+</pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgb9e6c89" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
+<h4 id="orgb9e6c89"><span class="section-number-4">3.1.2</span> Model and Init</h4>
+<p>
+Let's start modelling the status to be the seconds of the current
+minute
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #b4fa70;">type</span> <span style="color: #b4fa70;">alias</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">=</span>
+    <span style="color: #8cc4ff;">Int</span>
+
+<span style="color: #fce94f;">init</span> <span style="color: #e090d7;">:</span> ( <span style="color: #8cc4ff;">Model</span><span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span> <span style="color: #8cc4ff;">Msg</span> )
+<span style="color: #fce94f;">init</span> <span style="color: #e090d7;">=</span>
+    ( 1<span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>none )
+</pre>
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orga53d445" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org9338ce9" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="orga53d445"><span class="section-number-4">3.1.1</span> Subscriptions</h4>
+<h4 id="org9338ce9"><span class="section-number-4">3.1.3</span> Update</h4>
+<p>
+every 1 s a Tick event is sent; its value is the number of ms from
+epoch; we transform it into the seconds of current minute
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #fce94f;">update</span> <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Msg</span> <span style="color: #e090d7;">-&gt;</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">-&gt;</span> ( <span style="color: #8cc4ff;">Model</span><span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span> <span style="color: #8cc4ff;">Msg</span> )
+<span style="color: #fce94f;">update</span> (<span style="color: #8cc4ff;">Tick</span> time) model <span style="color: #e090d7;">=</span>
+    ( (floor (time <span style="color: #e090d7;">/</span> 1000)) <span style="color: #e090d7;">%</span> 60<span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>none )
+</pre>
+</div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org47d8dd6" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgd100936" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h4 id="org47d8dd6"><span class="section-number-4">3.1.2</span> SVN</h4>
+<h4 id="orgd100936"><span class="section-number-4">3.1.4</span> SVN: Declaration</h4>
+<p>
+we use SVN to draw the clock
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #b4fa70;">import</span> <span style="color: #8cc4ff;">Svg</span> <span style="color: #b4fa70;">exposing</span> (svg<span style="color: #e090d7;">,</span> circle<span style="color: #e090d7;">,</span> line)
+<span style="color: #b4fa70;">import</span> <span style="color: #8cc4ff;">Svg</span><span style="color: #e090d7;">.</span><span style="color: #8cc4ff;">Attributes</span> <span style="color: #b4fa70;">exposing</span> ( <span style="color: #73d216;">--many things here</span>
+
+</pre>
+</div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org677b9e4" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org6373c70" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="org677b9e4"><span class="section-number-3">3.2</span> Takeaways</h3>
+<h4 id="org6373c70"><span class="section-number-4">3.1.5</span> SVN: view part 1</h4>
+<p>
+first a little trigonometry
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #fce94f;">view</span> <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">-&gt;</span> <span style="color: #8cc4ff;">Html</span> <span style="color: #8cc4ff;">Msg</span>
+<span style="color: #fce94f;">view</span> model <span style="color: #e090d7;">=</span>
+    <span style="color: #b4fa70;">let</span>
+        size <span style="color: #e090d7;">=</span>
+            { width <span style="color: #e090d7;">=</span> 300<span style="color: #e090d7;">,</span> height <span style="color: #e090d7;">=</span> 300 }
+
+        center <span style="color: #e090d7;">=</span>
+            { x <span style="color: #e090d7;">=</span> size<span style="color: #e090d7;">.</span>width <span style="color: #e090d7;">/</span> 2<span style="color: #e090d7;">,</span> y <span style="color: #e090d7;">=</span> size<span style="color: #e090d7;">.</span>height <span style="color: #e090d7;">/</span> 2 }
+
+        radius <span style="color: #e090d7;">=</span>
+            size<span style="color: #e090d7;">.</span>width <span style="color: #e090d7;">/</span> 2
+
+        angle <span style="color: #e090d7;">=</span>
+            2 <span style="color: #e090d7;">*</span> pi <span style="color: #e090d7;">*</span> (toFloat model) <span style="color: #e090d7;">/</span> 60
+
+        hand <span style="color: #e090d7;">=</span>
+            <span style="color: #b4fa70;">{</span> x <span style="color: #e090d7;">=</span> center<span style="color: #e090d7;">.</span>x <span style="color: #e090d7;">+</span> radius <span style="color: #e090d7;">*</span> cos angle
+            <span style="color: #b4fa70;">,</span> y <span style="color: #e090d7;">=</span> center<span style="color: #e090d7;">.</span>y <span style="color: #e090d7;">+</span> radius <span style="color: #e090d7;">*</span> sin angle
+            <span style="color: #b4fa70;">}</span>
+</pre>
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org377b762" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
+<h4 id="org377b762"><span class="section-number-4">3.1.6</span> SVG: view part 2</h4>
+<p>
+then the actual draw
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #b4fa70;">in</span>
+    div []
+        <span style="color: #b4fa70;">[</span> svg
+            <span style="color: #b4fa70;">[</span> width <span style="color: #e090d7;">&lt;|</span> toString size<span style="color: #e090d7;">.</span>width
+            <span style="color: #b4fa70;">,</span> height <span style="color: #e090d7;">&lt;|</span> toString size<span style="color: #e090d7;">.</span>height
+            <span style="color: #b4fa70;">,</span> viewBox <span style="color: #e090d7;">&lt;|</span> <span style="color: #e9b96e;">"0 0 "</span> <span style="color: #e090d7;">++</span> (toString size<span style="color: #e090d7;">.</span>width) <span style="color: #e090d7;">++</span> <span style="color: #e9b96e;">" "</span> <span style="color: #e090d7;">++</span> (toString size<span style="color: #e090d7;">.</span>height)
+            <span style="color: #b4fa70;">]</span>
+            <span style="color: #b4fa70;">[</span> circle
+                <span style="color: #b4fa70;">[</span> cx <span style="color: #e090d7;">&lt;|</span> toString center<span style="color: #e090d7;">.</span>x
+                <span style="color: #b4fa70;">,</span> cy <span style="color: #e090d7;">&lt;|</span> toString center<span style="color: #e090d7;">.</span>y
+                <span style="color: #b4fa70;">,</span> r <span style="color: #e090d7;">&lt;|</span> toString radius
+                <span style="color: #b4fa70;">,</span> fill <span style="color: #e9b96e;">"blue"</span>
+                <span style="color: #b4fa70;">]</span>
+                []
+            <span style="color: #b4fa70;">,</span> line
+                <span style="color: #b4fa70;">[</span> x1 <span style="color: #e090d7;">&lt;|</span> toString center<span style="color: #e090d7;">.</span>x
+                <span style="color: #b4fa70;">,</span> y1 <span style="color: #e090d7;">&lt;|</span> toString center<span style="color: #e090d7;">.</span>y
+                <span style="color: #b4fa70;">,</span> x2 <span style="color: #e090d7;">&lt;|</span> toString hand<span style="color: #e090d7;">.</span>x
+                <span style="color: #b4fa70;">,</span> y2 <span style="color: #e090d7;">&lt;|</span> toString hand<span style="color: #e090d7;">.</span>y
+                <span style="color: #b4fa70;">,</span> stroke <span style="color: #e9b96e;">"yellow"</span>
+                <span style="color: #b4fa70;">,</span> strokeWidth <span style="color: #e9b96e;">"4"</span>
+                <span style="color: #b4fa70;">]</span>
+                []
+            <span style="color: #b4fa70;">]</span>
+        <span style="color: #b4fa70;">]</span>
+</pre>
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org4065145" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
+<h3 id="org4065145"><span class="section-number-3">3.2</span> Takeaways</h3>
 <ul>
-<li>Asynchronous events are all created equal</li>
+<li>Asynchronous events are all created equal
+<ul>
 <li>Dynamic DOM Update</li>
 <li>Effects are accessible: type system aids checking</li>
+
+</ul></li>
 
 </ul>
 <div class="slide-footer"></div>
 </section>
 </section>
 <section>
-<section id="slide-orga57a402" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org289043f" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h2 id="orga57a402"><span class="section-number-2">4</span> Hand</h2>
+<h2 id="org289043f"><span class="section-number-2">4</span> Hand</h2>
 <div class="outline-text-2" id="text-4">
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgb114236" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org72f013f" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orgb114236"><span class="section-number-3">4.1</span> Asynchronous Events (Again): The Mouse</h3>
+<h3 id="org72f013f"><span class="section-number-3">4.1</span> Asynchronous Events (Again): The Mouse</h3>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org412e612" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgd70eff0" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="org412e612"><span class="section-number-3">4.2</span> Transform events into types</h3>
+<h3 id="orgd70eff0"><span class="section-number-3">4.2</span> Transform events into types</h3>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org3b8cca6" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgf981f16" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="org3b8cca6"><span class="section-number-3">4.3</span> Takeaways</h3>
+<h3 id="orgf981f16"><span class="section-number-3">4.3</span> Takeaways</h3>
 <ul>
 <li>Asynchronous events are all created equal (Again)</li>
 <li>Games anyone?</li>
@@ -770,41 +905,176 @@ reproduce each step</li>
 </section>
 </section>
 <section>
-<section id="slide-org6ca8504" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgb305fd6" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h2 id="org6ca8504"><span class="section-number-2">5</span> All Together</h2>
+<h2 id="orgb305fd6"><span class="section-number-2">5</span> All Together Now</h2>
 <div class="outline-text-2" id="text-5">
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orga8b36e8" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org352f739" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orga8b36e8"><span class="section-number-3">5.1</span> Import and Export</h3>
+<h3 id="org352f739"><span class="section-number-3">5.1</span> Overview</h3>
+<ul>
+<li>what if we want to integrate more modules into one?</li>
+<li>is it possible to create reusable "widgets" (e.g. a calendar)?</li>
+<li>How can types be matched in order to reuse the status and message types?</li>
+
+</ul>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgc0c1419" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org09f551a" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orgc0c1419"><span class="section-number-3">5.2</span> Model</h3>
+<h3 id="org09f551a"><span class="section-number-3">5.2</span> Import and Export</h3>
+<p>
+we can import other modules from the main module like this
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #b4fa70;">import</span> <span style="color: #8cc4ff;">Clock</span>
+<span style="color: #b4fa70;">import</span> <span style="color: #8cc4ff;">Form</span>
+<span style="color: #b4fa70;">import</span> <span style="color: #8cc4ff;">Hand</span>
+</pre>
+</div>
+<p>
+but what do they have to export?
+</p>
+<ul>
+<li>the Model and Msg types</li>
+<li>the init function</li>
+<li>the update function</li>
+<li>the subscription function</li>
+<li>the view function</li>
+
+</ul>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org5b82a2b" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orged95791" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="org5b82a2b"><span class="section-number-3">5.3</span> Init</h3>
+<h3 id="orged95791"><span class="section-number-3">5.3</span> Model and Msg</h3>
+<p>
+to have a working model we must allow space for each of the sub models
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #b4fa70;">type</span> <span style="color: #b4fa70;">alias</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">=</span>
+    <span style="color: #b4fa70;">{</span> hand <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Hand</span><span style="color: #e090d7;">.</span><span style="color: #8cc4ff;">Model</span>
+    <span style="color: #b4fa70;">,</span> clock <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Clock</span><span style="color: #e090d7;">.</span><span style="color: #8cc4ff;">Model</span>
+    <span style="color: #b4fa70;">,</span> form <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Form</span><span style="color: #e090d7;">.</span><span style="color: #8cc4ff;">Model</span>
+    <span style="color: #b4fa70;">}</span>
+</pre>
+</div>
+<p>
+the same is true for messages
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #b4fa70;">type</span> <span style="color: #8cc4ff;">Msg</span>
+    <span style="color: #e090d7;">=</span> <span style="color: #8cc4ff;">HandMsg</span> <span style="color: #8cc4ff;">Hand</span><span style="color: #e090d7;">.</span><span style="color: #8cc4ff;">Msg</span>
+    <span style="color: #e090d7;">|</span> <span style="color: #8cc4ff;">ClockMsg</span> <span style="color: #8cc4ff;">Clock</span><span style="color: #e090d7;">.</span><span style="color: #8cc4ff;">Msg</span>
+    <span style="color: #e090d7;">|</span> <span style="color: #8cc4ff;">FormMsg</span> <span style="color: #8cc4ff;">Form</span><span style="color: #e090d7;">.</span><span style="color: #8cc4ff;">Msg</span>
+</pre>
+</div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-org9575388" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orge313c11" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="org9575388"><span class="section-number-3">5.4</span> Update</h3>
+<h3 id="orge313c11"><span class="section-number-3">5.4</span> Init</h3>
+<p>
+the init also allows for each module to have side effects when
+initialized; it is useful to execute all of them in sequence;
+<code>Cmd.map</code> allows to remap messages into the common type
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #fce94f;">init</span> <span style="color: #e090d7;">=</span>
+    <span style="color: #b4fa70;">let</span>
+        ( handM<span style="color: #e090d7;">,</span> handC ) <span style="color: #e090d7;">=</span>
+            <span style="color: #8cc4ff;">Hand</span><span style="color: #e090d7;">.</span>init
+        <span style="color: #73d216;">-- and so on for other modules</span>
+    <span style="color: #b4fa70;">in</span>
+        ( <span style="color: #b4fa70;">{</span> hand <span style="color: #e090d7;">=</span> handM
+          <span style="color: #b4fa70;">,</span> clock <span style="color: #e090d7;">=</span> clockM
+          <span style="color: #b4fa70;">,</span> form <span style="color: #e090d7;">=</span> formM
+          <span style="color: #b4fa70;">}</span>
+        <span style="color: #b4fa70;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>batch
+            <span style="color: #b4fa70;">[</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>map <span style="color: #8cc4ff;">HandMsg</span> handC
+            <span style="color: #b4fa70;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>map <span style="color: #8cc4ff;">ClockMsg</span> clockC
+            <span style="color: #b4fa70;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>map <span style="color: #8cc4ff;">FormMsg</span> formC
+            <span style="color: #b4fa70;">]</span>
+        )
+</pre>
+</div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgb734ce0" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-org5d45c91" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orgb734ce0"><span class="section-number-3">5.5</span> Subscriptions</h3>
+<h3 id="org5d45c91"><span class="section-number-3">5.5</span> Subscriptions</h3>
+<p>
+also subscriptions can be glued together; Sub.map is the function to
+remap the messages here
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #fce94f;">subscriptions</span> <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">-&gt;</span> <span style="color: #8cc4ff;">Sub</span> <span style="color: #8cc4ff;">Msg</span>
+<span style="color: #fce94f;">subscriptions</span> model <span style="color: #e090d7;">=</span>
+    <span style="color: #b4fa70;">let</span>
+        clockS <span style="color: #e090d7;">=</span>
+            <span style="color: #8cc4ff;">Sub</span><span style="color: #e090d7;">.</span>map <span style="color: #8cc4ff;">ClockMsg</span> <span style="color: #e090d7;">&lt;|</span> <span style="color: #8cc4ff;">Clock</span><span style="color: #e090d7;">.</span>subscriptions model<span style="color: #e090d7;">.</span>clock
+
+        formS <span style="color: #e090d7;">=</span>
+            <span style="color: #8cc4ff;">Sub</span><span style="color: #e090d7;">.</span>map <span style="color: #8cc4ff;">FormMsg</span> <span style="color: #e090d7;">&lt;|</span> <span style="color: #8cc4ff;">Form</span><span style="color: #e090d7;">.</span>subscriptions model<span style="color: #e090d7;">.</span>form
+
+        handS <span style="color: #e090d7;">=</span>
+            <span style="color: #8cc4ff;">Sub</span><span style="color: #e090d7;">.</span>map <span style="color: #8cc4ff;">HandMsg</span> <span style="color: #e090d7;">&lt;|</span> <span style="color: #8cc4ff;">Hand</span><span style="color: #e090d7;">.</span>subscriptions model<span style="color: #e090d7;">.</span>hand
+    <span style="color: #b4fa70;">in</span>
+        <span style="color: #8cc4ff;">Sub</span><span style="color: #e090d7;">.</span>batch [ clockS<span style="color: #e090d7;">,</span> formS<span style="color: #e090d7;">,</span> handS ]
+</pre>
+</div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-orgf3b68c4" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<section id="slide-orgcd1b5cd" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
 <div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
-<h3 id="orgf3b68c4"><span class="section-number-3">5.6</span> Takeaways</h3>
+<h3 id="orgcd1b5cd"><span class="section-number-3">5.6</span> Update</h3>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #fce94f;">update</span> <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Msg</span> <span style="color: #e090d7;">-&gt;</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">-&gt;</span> ( <span style="color: #8cc4ff;">Model</span><span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span> <span style="color: #8cc4ff;">Msg</span> )
+<span style="color: #fce94f;">update</span> message model <span style="color: #e090d7;">=</span>
+    <span style="color: #b4fa70;">case</span> message <span style="color: #b4fa70;">of</span>
+        <span style="color: #8cc4ff;">ClockMsg</span> msg <span style="color: #e090d7;">-&gt;</span>
+            <span style="color: #b4fa70;">let</span>
+                ( clockNewM<span style="color: #e090d7;">,</span> clockNewC ) <span style="color: #e090d7;">=</span>
+                    <span style="color: #8cc4ff;">Clock</span><span style="color: #e090d7;">.</span>update msg model<span style="color: #e090d7;">.</span>clock
+            <span style="color: #b4fa70;">in</span>
+                ( { model <span style="color: #e090d7;">|</span> clock <span style="color: #e090d7;">=</span> clockNewM }<span style="color: #e090d7;">,</span> <span style="color: #8cc4ff;">Cmd</span><span style="color: #e090d7;">.</span>map <span style="color: #8cc4ff;">ClockMsg</span> clockNewC )
+<span style="color: #73d216;">-- more cases follow</span>
+</pre>
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgd722871" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
+<h3 id="orgd722871"><span class="section-number-3">5.7</span> View</h3>
+<p>
+<code>Html.map</code> provides the type mapping functionality also for the view
+part
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #fce94f;">view</span> <span style="color: #e090d7;">:</span> <span style="color: #8cc4ff;">Model</span> <span style="color: #e090d7;">-&gt;</span> <span style="color: #8cc4ff;">Html</span> <span style="color: #8cc4ff;">Msg</span>
+<span style="color: #fce94f;">view</span> model <span style="color: #e090d7;">=</span>
+    div []
+        <span style="color: #b4fa70;">[</span> <span style="color: #8cc4ff;">Html</span><span style="color: #e090d7;">.</span>map <span style="color: #8cc4ff;">ClockMsg</span> <span style="color: #e090d7;">&lt;|</span> <span style="color: #8cc4ff;">Clock</span><span style="color: #e090d7;">.</span>view model<span style="color: #e090d7;">.</span>clock
+        <span style="color: #b4fa70;">,</span> <span style="color: #8cc4ff;">Html</span><span style="color: #e090d7;">.</span>map <span style="color: #8cc4ff;">HandMsg</span> <span style="color: #e090d7;">&lt;|</span> <span style="color: #8cc4ff;">Hand</span><span style="color: #e090d7;">.</span>view model<span style="color: #e090d7;">.</span>hand
+        <span style="color: #b4fa70;">,</span> <span style="color: #8cc4ff;">Html</span><span style="color: #e090d7;">.</span>map <span style="color: #8cc4ff;">FormMsg</span> <span style="color: #e090d7;">&lt;|</span> <span style="color: #8cc4ff;">Form</span><span style="color: #e090d7;">.</span>view model<span style="color: #e090d7;">.</span>form
+        <span style="color: #b4fa70;">]</span>
+</pre>
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org68a9e5e" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"><div><div style="background:url('../images/micron_logo.svg');position: absolute;top: 0px;left: 0px;width: 100px;height: 79px;"></div>Meet Elm; Marco P. V. Vezzoli</div></div>
+<h3 id="org68a9e5e"><span class="section-number-3">5.8</span> Takeaways</h3>
 <ul>
 <li>The Elm architecture is scalable</li>
 <li>There is more behind Map than your eyes see now</li>
